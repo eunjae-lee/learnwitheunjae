@@ -1,2 +1,6 @@
-<h1 class="text-3xl font-bold underline">Hello world!</h1>
-<button class="btn btn-primary">Click me</button>
+<div class="h-screen flex items-center justify-center">
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold opacity-80">Learn with Eunjae</h1>
+    <p class="font-light opacity-75">Coming soon</p>
+  </div>
+</div>
