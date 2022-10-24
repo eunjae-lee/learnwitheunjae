@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:lang(ko) {
-  h1, h2, h3 {
-    word-break: keep-all;
-  }
+:is(h1, h2, h3):lang(ko) {
+  word-break: keep-all;
 }
