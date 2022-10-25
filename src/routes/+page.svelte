@@ -2,6 +2,10 @@
   import { Twitter } from "lucide-svelte";
 </script>
 
+<svelte:head>
+  <title>Learn with Eunjae</title>
+</svelte:head>
+
 <div class="fixed inset-0 flex items-center justify-center">
   <div class="flex flex-col items-center">
     <h1 class="text-3xl font-bold opacity-80">Learn with Eunjae</h1>
