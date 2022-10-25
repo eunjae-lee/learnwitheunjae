@@ -10,7 +10,7 @@
       href="https://twitter.com/learnwitheunjae"
       target="_blank"
       rel="noreferrer"
-      class="mt-16 text-base-100 bg-primary rounded-full p-2 opacity-35 hover:opacity-100"
+      class="mt-16 text-base-100 bg-primary rounded-full p-2 opacity-25 hover:opacity-100"
       ><Twitter size={16} /><span class="sr-only">Twitter</span></a
     >
     <div class="h-24" />
