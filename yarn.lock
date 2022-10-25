@@ -2051,6 +2051,7 @@ __metadata:
     eslint-config-prettier: ^8.3.0
     eslint-plugin-svelte3: ^4.0.0
     logrocket: ^3.0.1
+    lucide-svelte: ^0.94.0
     postcss: ^8.4.18
     prettier: ^2.6.2
     prettier-plugin-svelte: ^2.7.0
@@ -2117,6 +2118,16 @@ __metadata:
   version: 7.14.0
   resolution: "lru-cache@npm:7.14.0"
   checksum: efdd329f2c1bb790b71d497c6c59272e6bc2d7dd060ba55fc136becd3dd31fc8346edb446275504d94cb60d3c8385dbf5267b79b23789e409b2bdf302d13f0d7
+  languageName: node
+  linkType: hard
+
+"lucide-svelte@npm:^0.94.0":
+  version: 0.94.0
+  resolution: "lucide-svelte@npm:0.94.0"
+  peerDependencies:
+    svelte: ^3.49.0
+    svelte2tsx: ^0.4.12
+  checksum: 71f93d9d06fdd368fc3b91cbe28fb9c786534dd25f8fd74911d91b4d902a2bce36478a27807eeb4b874fa8df7a81030723a03c710c8df0c3b9a0ee968f354553
   languageName: node
   linkType: hard
 
