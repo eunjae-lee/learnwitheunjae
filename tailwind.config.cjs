@@ -7,7 +7,7 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        lwe: {
+        learnwitheunjae: {
           primary: "#de4500",
           secondary: "#202d85",
           accent: "#a6e6db",
