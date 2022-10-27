@@ -56,8 +56,12 @@
         class="text-base-content bg-base-100 dropdown-content menu p-2 shadow rounded-box w-48"
       >
         {#each minorItems as item}
-          <MenuItem as="li">
-            <a href={item.href} class={getClassForMenuItem(item.href)}>
+          <MenuItem as="li" let:active>
+            <a
+              href={item.href}
+              class={getClassForMenuItem(item.href)}
+              class:active
+            >
               {item.label}
             </a>
           </MenuItem>
