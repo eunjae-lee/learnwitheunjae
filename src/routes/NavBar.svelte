@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { page } from "$app/stores";
   import { Menu as MenuIcon } from "lucide-svelte";
   import {
     Menu,
@@ -17,7 +18,7 @@
   ];
 
   function isCurrentPage(href: string) {
-    return window.location.pathname === href;
+    return $page.url.pathname === href;
   }
 
   function getClassForMenuItem(href: string) {
