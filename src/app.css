@@ -5,3 +5,7 @@
 :is(h1, h2, h3):lang(ko) {
   word-break: keep-all;
 }
+
+.inner-container {
+  @apply max-w-4xl mx-auto px-4 sm:px-12 lg:px-0
+}
