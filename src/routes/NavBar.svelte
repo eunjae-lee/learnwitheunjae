@@ -35,7 +35,7 @@
       {#each menuItems as item}
         <a
           href={item.href}
-          class={"text-sm font-light btn btn-ghost normal-case " +
+          class={"text-sm font-light btn btn-ghost normal-case hover:no-underline " +
             getClassForMenuItem(item.href)}>{item.label}</a
         >
       {/each}
@@ -54,7 +54,7 @@
             <MenuItem as="li" let:active>
               <a
                 href={item.href}
-                class={getClassForMenuItem(item.href)}
+                class={`hover:no-underline ${getClassForMenuItem(item.href)}`}
                 class:active
               >
                 {item.label}
