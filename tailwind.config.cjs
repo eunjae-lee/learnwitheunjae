@@ -6,7 +6,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Noto Sans KR Distilled", ...defaultTheme.fontFamily.sans],
+        sans: [
+          "Noto Sans KR Distilled",
+          "Noto Sans KR Distilled fallback",
+          ...defaultTheme.fontFamily.sans,
+        ],
       },
     },
   },
