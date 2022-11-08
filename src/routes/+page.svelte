@@ -23,7 +23,7 @@
           <li><a href="/">Turborepo 로 모노리포 맛보기</a></li>
           <li><a href="/">Next 13 엔 뭐가 달라졌나요</a></li>
         </ol>
-        <div class="mt-4"><SeeMoreLink href="/" /></div>
+        <div class="mt-4 flex justify-end"><SeeMoreLink href="/" /></div>
       </div>
     </div>
   </section>
@@ -85,7 +85,7 @@
           <li><a href="/">Turborepo 로 모노리포 맛보기</a></li>
           <li><a href="/">Next 13 엔 뭐가 달라졌나요</a></li>
         </ol>
-        <div class="mt-4"><SeeMoreLink href="/" /></div>
+        <div class="mt-4 flex justify-end"><SeeMoreLink href="/" /></div>
       </div>
     </div>
   </section>

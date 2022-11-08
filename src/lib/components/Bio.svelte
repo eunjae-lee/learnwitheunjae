@@ -19,7 +19,7 @@
       </p>
       <a
         href="/"
-        class="text-primary text-sm font-medium inline-flex items-center"
+        class="text-primary text-sm font-medium inline-flex items-center justify-end"
         ><span>연락하기</span><ArrowRight size={16} /></a
       >
     </div>
