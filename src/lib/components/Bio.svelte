@@ -18,9 +18,9 @@
         위한 밸런스에 대해 많은 고민을 하며 지내고 있습니다.
       </p>
       <a
-        href="/"
+        href="/about"
         class="text-primary text-sm font-medium inline-flex items-center justify-end"
-        ><span>연락하기</span><ArrowRight size={16} /></a
+        ><span>소개 더보기</span><ArrowRight size={16} /></a
       >
     </div>
   </div>

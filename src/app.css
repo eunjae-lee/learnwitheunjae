@@ -23,6 +23,10 @@
   @apply max-w-4xl mx-auto px-6 sm:px-12 lg:px-0;
 }
 
+.narrow-inner-container {
+  @apply max-w-xl mx-auto px-6 sm:px-12 lg:px-0;
+}
+
 a {
-  @apply hover:underline;
+  @apply hover:underline underline-offset-4;
 }
