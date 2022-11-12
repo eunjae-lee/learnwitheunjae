@@ -19,10 +19,10 @@
 </script>
 
 <form class="mt-8 sm:mt-6 form-control" on:submit|preventDefault={onSubmit}>
-  <label class="hidden sm:flex label" for="js-course-email">
+  <label class="label" for="js-course-email">
     <span class="label-text text-primary">{title}</span>
   </label>
-  <div class="flex flex-col sm:flex-row gap-2">
+  <div class="flex gap-2">
     <input
       type="text"
       placeholder="이메일 주소"
