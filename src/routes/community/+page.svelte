@@ -27,10 +27,9 @@
       rel="noreferrer"
       href="https://discord.gg/d94Z8V5wB2"
       target="_blank"
-      ><Discord /><span class="ml-2">Discord 서버에 참여하기</span><ArrowRight
-        class="ml-1"
-        size={16}
-      /></a
+      ><Discord /><span class="ml-2 text-secondary"
+        >Discord 서버에 참여하기</span
+      ><ArrowRight class="ml-1 text-secondary" size={16} /></a
     >
   </p>
 </main>

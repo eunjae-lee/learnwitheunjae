@@ -6,7 +6,7 @@
 <NavBar />
 
 <main class="inner-container my-16">
-  <h1 class="text-secondary text-xl font-medium">퐁당개발</h1>
+  <h1 class="text-secondary text-xl font-medium">차근차근 JavaScript</h1>
 </main>
 
 <Footer />

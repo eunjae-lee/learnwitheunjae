@@ -12,6 +12,7 @@
 
   const menuItems = [
     { label: "퐁당개발", href: "/pd" },
+    { label: "차근차근 JavaScript", href: "/upgrade-js" },
     // { label: "블로그", href: "/blog" },
     // { label: "발표", href: "/speak" },
     { label: "커뮤니티", href: "/community" },
@@ -33,12 +34,12 @@
 
 <div class:bg-secondary={isSecondary}>
   <div class="max-w-4xl mx-auto" class:text-base-100={isSecondary}>
-    <div class="navbar">
+    <div class="navbar sm:px-0">
       <div class="navbar-start">
         {#if isSecondary}
           <a
             href="/"
-            class="btn btn-ghost font-light normal-case hover:no-underline flex flex-col items-start gap-[0.125rem]"
+            class="sm:-ml-3 btn btn-ghost font-light normal-case hover:no-underline flex flex-col items-start gap-[0.125rem]"
           >
             <p class="text-xs leading-none">Learn with</p>
             <p class="text-lg leading-none">Eunjae</p></a

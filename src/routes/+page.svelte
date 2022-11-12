@@ -5,6 +5,7 @@
   import SeeMoreLink from "$lib/components/SeeMoreLink.svelte";
   import Bio from "$lib/components/Bio.svelte";
   import Footer from "$lib/components/Footer.svelte";
+  import SubscriptionBox from "$lib/components/SubscriptionBox.svelte";
 </script>
 
 <Hero />
@@ -24,12 +25,14 @@
           <li><a href="/">Next 13 엔 뭐가 달라졌나요</a></li>
         </ol>
         <div class="mt-4 flex justify-end"><SeeMoreLink href="/" /></div>
+
+        <SubscriptionBox title="퐁당개발 소식 받기" slug="pd" />
       </div>
     </div>
   </section>
 
   <section>
-    <h2 class="text-secondary text-xl font-medium">자바스크립트 업그레이드</h2>
+    <h2 class="text-secondary text-xl font-medium">차근차근 JavaScript</h2>
     <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-16">
       <div class="basis-1/2">
         <img
@@ -42,33 +45,25 @@
         <div class="flex flex-col gap-4 font-light leading-relaxed">
           <p>
             JavaScript 자체를 많이 다루진 않았고, 프레임워크 위주로 프론트엔드를
-            하다보면, 막히는 부분이 많은데요. 내가 뭘 몰라서 막히는지 조차
+            하다 보면, 막히는 부분이 많은데요. 내가 뭘 몰라서 막히는지조차
             모르는 경우가 많죠.
           </p>
           <p>
-            이 강의는 다양한 미니 프로젝트를 통해 JavaScript 를 다양하게
-            사용해보고 프레임워크 없이 구현하려면 어떻게 하는지 보다 깊이
-            이해하게 도와줍니다.
+            이 강의는 다양한 미니 프로젝트를 통해 JavaScript 를 다양하게 사용해
+            보고 프레임워크 없이 구현하려면 어떻게 하는지 보다 깊이 이해하게
+            도와줍니다. 다양한 예제를 차근차근 하나씩 따라가다 보면, 어느새
+            JavaScript 를 폭넓게 사용해 본 경험을 얻게 되고, 그게 자신감에 큰
+            도움을 줄 거예요.
           </p>
           <p>
             강의는 현재 준비 중이며, 이메일을 남겨주시면 런칭 소식을
             전해드리겠습니다.
           </p>
         </div>
-        <div class="mt-8 sm:mt-6 form-control">
-          <label class="hidden sm:flex label" for="js-course-email">
-            <span class="label-text">이메일 주소</span>
-          </label>
-          <div class="flex flex-col sm:flex-row gap-2">
-            <input
-              type="text"
-              placeholder="이메일 주소"
-              name="js-course-email"
-              class="input input-primary input-bordered w-full"
-            />
-            <button class="btn btn-primary font-medium">소식 받기</button>
-          </div>
-        </div>
+        <SubscriptionBox
+          title="차근차근 JavaScript 런칭 소식 받기"
+          slug="upgrade-js"
+        />
       </div>
     </div>
   </section>
