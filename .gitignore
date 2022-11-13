@@ -1,7 +1,8 @@
 .DS_Store
-**/node_modules
-**/build
-**/.svelte-kit
+node_modules
+build
+.svelte-kit
+.next
 /package
 .env
 .env.*
@@ -14,3 +15,6 @@ yarn-error.log
 !.yarn/releases
 !.yarn/plugins
 .pnp.*
+
+*.tsbuildinfo
+next-env.d.ts
