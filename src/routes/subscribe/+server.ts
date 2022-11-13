@@ -8,7 +8,6 @@ const MAP: Record<string, string> = {
 };
 
 export async function POST({ request }: RequestEvent) {
-  console.log("💡 hey!!! i am here");
   const { slug, email } = await request.json();
 
   if (!MAP[slug]) {

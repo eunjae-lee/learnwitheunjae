@@ -24,10 +24,6 @@ export async function subscribeToEmailList({
     if (response.status === 200) {
       return true;
     } else {
-      console.log("💡 subscription error!", {
-        status: response.status,
-        statustext: response.statusText,
-      });
       LogRocket.captureMessage("subscription result is not 200", {
         extra: {
           status: response.status,
