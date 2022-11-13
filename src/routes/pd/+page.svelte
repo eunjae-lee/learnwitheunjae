@@ -1,7 +1,10 @@
 <script>
   import Footer from "$lib/components/Footer.svelte";
+  import Meta from "$lib/components/Meta.svelte";
   import NavBar from "../NavBar.svelte";
 </script>
+
+<Meta title="퐁당개발 | Learn with Eunjae" />
 
 <NavBar />
 

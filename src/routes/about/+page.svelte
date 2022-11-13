@@ -1,8 +1,11 @@
 <script>
   import Footer from "$lib/components/Footer.svelte";
-  import { ArrowRight, Github, Instagram, Mail, Twitter } from "lucide-svelte";
+  import Meta from "$lib/components/Meta.svelte";
+  import { Github, Instagram, Mail, Twitter } from "lucide-svelte";
   import NavBar from "../NavBar.svelte";
 </script>
+
+<Meta title="소개 | Learn with Eunjae" />
 
 <NavBar />
 

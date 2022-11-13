@@ -1,9 +1,12 @@
 <script>
   import Footer from "$lib/components/Footer.svelte";
   import Discord from "$lib/components/icons/Discord.svelte";
+  import Meta from "$lib/components/Meta.svelte";
   import { ArrowRight } from "lucide-svelte";
   import NavBar from "../NavBar.svelte";
 </script>
+
+<Meta title="커뮤니티 | Learn with Eunjae" />
 
 <NavBar />
 

@@ -6,7 +6,10 @@
   import Bio from "$lib/components/Bio.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import SubscriptionBox from "$lib/components/SubscriptionBox.svelte";
+  import Meta from "$lib/components/Meta.svelte";
 </script>
+
+<Meta title="Learn with Eunaje" />
 
 <Hero />
 <NavBar />
@@ -68,7 +71,7 @@
     </div>
   </section>
 
-  <section>
+  <!-- <section>
     <h2 class="text-secondary text-xl font-medium">한 입 거리</h2>
     <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-16">
       <div class="basis-1/2"><VideoLink /></div>
@@ -83,7 +86,7 @@
         <div class="mt-4 flex justify-end"><SeeMoreLink href="/" /></div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <section>
     <h2 class="text-secondary text-xl font-medium">모든 강좌</h2>
