@@ -11,8 +11,8 @@
   const isSecondary = $page.url.pathname !== "/";
 
   const menuItems = [
-    { label: "퐁당개발", href: "/pd" },
     { label: "차근차근 JavaScript", href: "/upgrade-js" },
+    { label: "퐁당개발", href: "/pd" },
     // { label: "블로그", href: "/blog" },
     // { label: "발표", href: "/speak" },
     { label: "커뮤니티", href: "/community" },
