@@ -7,6 +7,10 @@
   import Footer from "$lib/components/Footer.svelte";
   import SubscriptionBox from "$lib/components/SubscriptionBox.svelte";
   import Meta from "$lib/components/Meta.svelte";
+
+  import { ver } from "@lwe/course";
+
+  console.log("💡 ver", ver);
 </script>
 
 <Meta title="Learn with Eunaje" />

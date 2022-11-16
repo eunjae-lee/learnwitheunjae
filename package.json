@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "packages/*"
   ],
   "scripts": {
-    "dev": "yarn workspace web dev"
+    "dev": "yarn workspace @lwe/web dev"
   },
   "type": "module",
   "packageManager": "yarn@3.2.4"

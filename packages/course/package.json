@@ -1,0 +1,7 @@
+{
+  "name": "@lwe/course",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "module": "./src/index.ts"
+}
