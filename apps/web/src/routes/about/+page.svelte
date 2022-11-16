@@ -5,7 +5,7 @@
   import NavBar from "../NavBar.svelte";
 </script>
 
-<Meta title="소개 | Learn with Eunjae" />
+<Meta title="소개" />
 
 <NavBar />
 

@@ -5,7 +5,7 @@
   import NavBar from "../NavBar.svelte";
 </script>
 
-<Meta title="차근차근 JavaScript | Learn with Eunjae" />
+<Meta title="차근차근 JavaScript" />
 
 <NavBar />
 

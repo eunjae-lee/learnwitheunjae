@@ -191,12 +191,7 @@
         </a>
       </li>
       <li>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://sideprojects.quill.so/posts"
-          title="사이드 프로젝트 뉴스레터"
-        >
+        <a href="/spn" title="사이드 프로젝트 뉴스레터">
           <p class="mt-3 text-lg line-clamp-1">사이드 프로젝트 뉴스레터</p>
           <p class="mt-2 font-light line-clamp-3">
             사이드 프로젝트 뉴스레터는 비정기적으로 발행됩니다. 사이드

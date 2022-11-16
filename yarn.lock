@@ -2922,6 +2922,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"just-camel-case@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "just-camel-case@npm:4.0.2"
+  checksum: d2def92e27089fc0fa79594967ff64a02902068aa29bc04f35e3054203104398c1c83542d8b91549e01870915465714b3a68749f56ed4166186887b20ad9d43a
+  languageName: node
+  linkType: hard
+
 "kleur@npm:^4.1.5":
   version: 4.1.5
   resolution: "kleur@npm:4.1.5"
@@ -3090,6 +3097,16 @@ __metadata:
     socks-proxy-agent: ^7.0.0
     ssri: ^9.0.0
   checksum: 2332eb9a8ec96f1ffeeea56ccefabcb4193693597b132cd110734d50f2928842e22b84cfa1508e921b8385cdfd06dda9ad68645fed62b50fff629a580f5fb72c
+  languageName: node
+  linkType: hard
+
+"mdsvex-relative-images@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "mdsvex-relative-images@npm:1.0.3"
+  dependencies:
+    just-camel-case: ^4.0.2
+    unist-util-visit: ^3.1.0
+  checksum: 7f5a95a4c5ae7e7db56e3999c512ff1fe86fc941d78ee1311868e297edc0b1b6f3023d090fc935256ba5a876a240a66c8d988cf24c20aa207487dc73b0f7018a
   languageName: node
   linkType: hard
 
@@ -4791,12 +4808,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"unist-util-is@npm:^5.0.0":
+  version: 5.1.1
+  resolution: "unist-util-is@npm:5.1.1"
+  checksum: e8743a19a304d8a8f5684f3e5ddb5546f2655847b42123687277d76566a2aba89beb7b4a8a9e9ebc4d904cd1cecc285356d7923d973a43cfc19a1e10ff6bdee4
+  languageName: node
+  linkType: hard
+
 "unist-util-stringify-position@npm:^2.0.0":
   version: 2.0.3
   resolution: "unist-util-stringify-position@npm:2.0.3"
   dependencies:
     "@types/unist": ^2.0.2
   checksum: f755cadc959f9074fe999578a1a242761296705a7fe87f333a37c00044de74ab4b184b3812989a57d4cd12211f0b14ad397b327c3a594c7af84361b1c25a7f09
+  languageName: node
+  linkType: hard
+
+"unist-util-visit-parents@npm:^4.0.0":
+  version: 4.1.1
+  resolution: "unist-util-visit-parents@npm:4.1.1"
+  dependencies:
+    "@types/unist": ^2.0.0
+    unist-util-is: ^5.0.0
+  checksum: 49d78984a6dd858a989f849d2b4330c8a04d1ee99c0e9920a5e37668cf847dab95db77a3bf0c8aaeb3e66abeae12e2d454949ec401614efef377d8f82d215662
+  languageName: node
+  linkType: hard
+
+"unist-util-visit@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "unist-util-visit@npm:3.1.0"
+  dependencies:
+    "@types/unist": ^2.0.0
+    unist-util-is: ^5.0.0
+    unist-util-visit-parents: ^4.0.0
+  checksum: c37dbc0c5509f85f3abdf46d927b3dd11e6c419159771b1f1a5ce446d36ac993d04b087e28bc6173a172e0fbe9d77e997f120029b2b449766ebe55b6f6e0cc2c
   languageName: node
   linkType: hard
 
@@ -4913,6 +4958,7 @@ __metadata:
     logrocket: ^3.0.1
     lucide-svelte: ^0.94.0
     mdsvex: ^0.10.6
+    mdsvex-relative-images: ^1.0.3
     node-fetch: ^3.3.0
     postcss: ^8.4.18
     prettier: ^2.6.2
