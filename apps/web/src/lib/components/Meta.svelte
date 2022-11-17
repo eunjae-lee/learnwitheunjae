@@ -4,11 +4,17 @@
   export let title: string;
   export let description: string | undefined = undefined;
 
-  let fullTitle =
-    $page.url.pathname === "/" ? title : `${title} | Learn with Eunjae`;
+  const isRoot = $page.url.pathname === "/";
+  let fullTitle = isRoot ? title : `${title} | Learn with Eunjae`;
   let url = $page.url.href;
   let safariThemeColor = $page.url.pathname === "/" ? "#de4500" : "#202d85";
-  let ogImage = "https://og.learnwitheunjae.dev/api/og?type=root";
+  let ogImage = `https://og.learnwitheunjae.dev/api/og?${
+    isRoot
+      ? "type=root"
+      : `title=${encodeURIComponent(title)}&description=${
+          description ? encodeURIComponent(description) : ""
+        }`
+  }`;
 </script>
 
 <svelte:head>
