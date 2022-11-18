@@ -1,6 +1,6 @@
 import LogRocket from "logrocket";
 
-export type SubscriptionSlug = "pd" | "upgrade-js";
+export type SubscriptionSlug = "pd" | "sinabro-js";
 
 export async function subscribeToEmailList({
   slug,

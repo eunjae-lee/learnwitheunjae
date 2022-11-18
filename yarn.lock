@@ -131,6 +131,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lwe/db@workspace:packages/db":
+  version: 0.0.0-use.local
+  resolution: "@lwe/db@workspace:packages/db"
+  languageName: unknown
+  linkType: soft
+
 "@lwe/og@workspace:apps/og":
   version: 0.0.0-use.local
   resolution: "@lwe/og@workspace:apps/og"

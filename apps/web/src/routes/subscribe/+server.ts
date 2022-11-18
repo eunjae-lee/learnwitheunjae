@@ -4,7 +4,7 @@ import fetch from "node-fetch";
 
 const MAP: Record<string, string> = {
   pd: "48dc31f8-62a0-11ed-88a2-5db2fdcb6c84",
-  "upgrade-js": "4d5c249a-62a0-11ed-881a-cd7277d2b9d7",
+  "sinabro-js": "4d5c249a-62a0-11ed-881a-cd7277d2b9d7",
 };
 
 export async function POST({ request }: RequestEvent) {
