@@ -11,7 +11,7 @@
   const isSecondary = $page.url.pathname !== "/";
 
   const menuItems = [
-    { label: "차근차근 JavaScript", href: "/sinabro-js" },
+    { label: "시나브로 자바스크립트", href: "/sinabro-js" },
     { label: "퐁당개발", href: "/pd" },
     // { label: "블로그", href: "/blog" },
     // { label: "발표", href: "/speak" },

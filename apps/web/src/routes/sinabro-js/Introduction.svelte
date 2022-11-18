@@ -3,7 +3,7 @@
 </script>
 
 <section>
-  <h2 class="text-secondary text-xl font-medium">차근차근 JavaScript</h2>
+  <h2 class="text-secondary text-xl font-medium">시나브로 자바스크립트</h2>
   <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-16">
     <div class="basis-1/2">
       <img
@@ -41,7 +41,7 @@
         </p>
       </div>
       <SubscriptionBox
-        title="차근차근 JavaScript 런칭 소식 받기"
+        title="시나브로 자바스크립트 런칭 소식 받기"
         slug="sinabro-js"
       />
     </div>

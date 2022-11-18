@@ -5,7 +5,7 @@
   import Introduction from "./Introduction.svelte";
 </script>
 
-<Meta title="차근차근 JavaScript" />
+<Meta title="시나브로 자바스크립트" />
 
 <NavBar />
 
