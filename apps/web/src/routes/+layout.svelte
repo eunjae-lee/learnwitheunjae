@@ -9,3 +9,16 @@
 </script>
 
 <slot />
+
+<style>
+  ::-moz-selection {
+    /* Code for Firefox */
+    color: #fbf4ef;
+    background: #202d85;
+  }
+
+  ::selection {
+    color: #fbf4ef;
+    background: #202d85;
+  }
+</style>

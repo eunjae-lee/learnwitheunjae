@@ -8,9 +8,8 @@
   import SubscriptionBox from "$lib/components/SubscriptionBox.svelte";
   import Meta from "$lib/components/Meta.svelte";
 
-  import { ver } from "@lwe/course";
-
-  console.log("💡 ver", ver);
+  // import { ver } from "@lwe/course";
+  // console.log("💡 ver", ver);
 </script>
 
 <Meta title="Learn with Eunaje" />
@@ -213,3 +212,16 @@
 </main>
 
 <Footer />
+
+<style>
+  ::-moz-selection {
+    /* Code for Firefox */
+    color: #fbf4ef;
+    background: #de4500;
+  }
+
+  ::selection {
+    color: #fbf4ef;
+    background: #de4500;
+  }
+</style>
