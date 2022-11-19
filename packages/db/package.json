@@ -4,5 +4,9 @@
   "private": true,
   "type": "module",
   "module": "./src/index.ts",
-  "types": "./src/index.ts"
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@supabase/auth-helpers-sveltekit": "^0.8.6",
+    "@supabase/supabase-js": "^2.1.0"
+  }
 }

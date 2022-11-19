@@ -9,9 +9,6 @@
   import Meta from "$lib/components/Meta.svelte";
   import UpgradeJSIntroduction from "./sinabro-js/Introduction.svelte";
   import PDIntroduction from "./pd/Introduction.svelte";
-
-  // import { ver } from "@lwe/course";
-  // console.log("💡 ver", ver);
 </script>
 
 <Meta title="Learn with Eunaje" />
