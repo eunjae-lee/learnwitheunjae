@@ -9,6 +9,7 @@ import { ReactElement } from "react";
 import RootPage from "../../src/components/RootPage";
 import TitleAndDesc from "../../src/components/TitleAndDesc";
 import TitleOnly from "../../src/components/TitleOnly";
+import Sinabro from "../../src/components/Sinabro";
 
 export const config = {
   runtime: "experimental-edge",
@@ -91,6 +92,8 @@ export default async function og(req: NextRequest) {
 
   if (type === "root") {
     ret = <RootPage />;
+  } else if (type === "sinabro") {
+    ret = <Sinabro title={title || ""} description={description || ""} />;
   } else if (title && description) {
     ret = <TitleAndDesc title={title} description={description} />;
   } else if (title && !description) {
