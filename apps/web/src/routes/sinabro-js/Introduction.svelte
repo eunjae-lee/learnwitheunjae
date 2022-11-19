@@ -8,7 +8,7 @@
     <div class="basis-1/2">
       <img
         class="rounded-md"
-        src="/js_meme.jpeg"
+        src="/js_meme.jpg"
         alt="자바스크립트 업그레이드"
       />
       <p class="mt-1 opacity-50 text-xs text-right">

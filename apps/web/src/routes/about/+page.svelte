@@ -16,7 +16,7 @@
   <p class="mt-8">
     <img
       class="rounded-full w-48 border-primary border-8"
-      src="/profile.jpeg"
+      src="/profile.jpg"
       alt="Eunjae Lee"
     />
   </p>

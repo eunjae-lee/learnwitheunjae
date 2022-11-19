@@ -8,7 +8,7 @@ export default function TitleOnly({ title }: { title: string }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           tw="rounded-full w-64"
-          src="https://og.learnwitheunjae.dev/profile.jpeg"
+          src="https://og.learnwitheunjae.dev/profile.jpg"
           alt="Eunjae Lee"
         />
       </div>

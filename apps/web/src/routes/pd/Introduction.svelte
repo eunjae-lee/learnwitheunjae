@@ -8,7 +8,7 @@
     <div class="basis-1/2">
       <img
         class="rounded-md"
-        src="/know_nothing.png"
+        src="/know_nothing.jpg"
         alt="Keep calm and know nothing"
       />
       <p class="mt-1 opacity-50 text-xs text-right">
