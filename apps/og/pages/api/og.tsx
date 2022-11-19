@@ -10,6 +10,7 @@ import RootPage from "../../src/components/RootPage";
 import TitleAndDesc from "../../src/components/TitleAndDesc";
 import TitleOnly from "../../src/components/TitleOnly";
 import Sinabro from "../../src/components/Sinabro";
+import SinabroYouTube from "../../src/components/SinabroYouTube";
 
 export const config = {
   runtime: "experimental-edge",
@@ -39,15 +40,31 @@ export const config = {
 //   new URL("../../assets/NotoSansKR-Thin.ttf", import.meta.url)
 // ).then((res) => res.arrayBuffer());
 
+// https://www.constantcontact.com/blog/social-media-image-sizes/
+const SIZE_MAP: Record<string, { width: number; height: number }> = {
+  twitter: {
+    width: 1200,
+    height: 628,
+  },
+  youtube: {
+    width: 1280,
+    height: 720,
+  },
+  default: {
+    width: 1280,
+    height: 720,
+  },
+};
+
 export default async function og(req: NextRequest) {
   const params = new URLSearchParams(req.url.split("?")[1]);
+  const media = params.get("media") || ""; // 'twitter' | 'youtube'
   const type = params.get("type");
   const title = params.get("title");
   const description = params.get("description");
 
   const options = {
-    width: 1200,
-    height: 600,
+    ...(SIZE_MAP[media] || SIZE_MAP.default),
     // fonts: [
     //   // {
     //   //   name: "Noto Sans KR",
@@ -94,6 +111,10 @@ export default async function og(req: NextRequest) {
     ret = <RootPage />;
   } else if (type === "sinabro") {
     ret = <Sinabro title={title || ""} description={description || ""} />;
+  } else if (type === "sinabro_youtube") {
+    ret = (
+      <SinabroYouTube title={title || ""} description={description || ""} />
+    );
   } else if (title && description) {
     ret = <TitleAndDesc title={title} description={description} />;
   } else if (title && !description) {
