@@ -13,7 +13,7 @@
     <div class="shrink-0">
       <img
         class="rounded-full w-32 h-32 opacity-75"
-        src="/shaka.jpeg"
+        src="/shaka.jpg"
         alt="Shaka"
       />
     </div>
