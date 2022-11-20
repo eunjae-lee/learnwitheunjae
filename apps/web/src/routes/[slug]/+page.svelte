@@ -7,21 +7,20 @@
   import { onMount } from "svelte";
 
   export let data: any;
-  let { story } = data;
 
   onMount(() => {
     if (IS_PREVIEW_MODE) {
-      enablePreview(story.id, (newStory) => (story = newStory));
+      enablePreview(data.story.id, (newStory) => (data.story = newStory));
     }
   });
 </script>
 
-<Meta title={story.name} />
+<Meta title={data.story.name} />
 
 <NavBar />
 
 <main class="inner-container my-16">
-  <StoryblokComponent {story} blok={story.content} />
+  <StoryblokComponent story={data.story} blok={data.story.content} />
 </main>
 
 <Footer />

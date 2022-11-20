@@ -38,10 +38,6 @@
   const rightMenuItems: MenuItemType[] = [
     { label: "로그인", icon: Github, onClick: signIn },
   ];
-
-  function isCurrentPage(href: string) {
-    return $page.url.pathname === href;
-  }
 </script>
 
 <div class:bg-secondary={isSecondary}>

@@ -2,8 +2,6 @@
   import { page } from "$app/stores";
   import { type MenuItem, getClassForMenuItem } from "./NavBar";
 
-  const currentPathname = $page.url.pathname;
-
   export let item: MenuItem;
   export let isSecondary: boolean;
   export let active: boolean;
@@ -18,7 +16,7 @@
     }
   }}
   class={`flex gap-2 ${getClassForMenuItem(
-    item.href === currentPathname,
+    item.href === $page.url.pathname,
     isSecondary
   )}`}
   class:active

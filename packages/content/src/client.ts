@@ -1,4 +1,4 @@
-import { PUBLIC_CONTENT_VERSION } from "$env/static/public";
+import { PUBLIC_APP_ENVIRONMENT } from "$env/static/public";
 import { env } from "$env/dynamic/public";
 import RichTextResolver from "./richText";
 import type { Story } from "./types";
@@ -8,11 +8,11 @@ type LoadStoryParams = {
   fetch: typeof fetch;
 };
 
-export const IS_PREVIEW_MODE = PUBLIC_CONTENT_VERSION === "draft";
+export const IS_PREVIEW_MODE = PUBLIC_APP_ENVIRONMENT !== "production";
 
 export async function loadStory({ slug, fetch }: LoadStoryParams) {
   const accessToken = env.PUBLIC_STORYBLOK_API_KEY;
-  const version = PUBLIC_CONTENT_VERSION;
+  const version = IS_PREVIEW_MODE ? "draft" : "published";
   const url = `https://api.storyblok.com/v2/cdn/stories/${slug}?token=${accessToken}&version=${version}`;
   const response = await fetch(url, {
     headers: {
