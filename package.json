@@ -7,7 +7,8 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "yarn workspace @lwe/web dev"
+    "dev": "yarn workspace @lwe/web dev",
+    "og": "yarn workspace @lwe/og dev"
   },
   "type": "module",
   "packageManager": "yarn@3.2.4"

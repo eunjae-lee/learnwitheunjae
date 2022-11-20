@@ -186,6 +186,7 @@ __metadata:
     svelte-check: ^2.7.1
     svelte-preprocess: ^4.10.7
     tailwindcss: ^3.2.1
+    ts-xor: ^1.0.8
     tslib: ^2.3.1
     typescript: ^4.7.4
     vite: ^3.1.0
@@ -4914,6 +4915,13 @@ __metadata:
   version: 0.0.3
   resolution: "tr46@npm:0.0.3"
   checksum: 726321c5eaf41b5002e17ffbd1fb7245999a073e8979085dacd47c4b4e8068ff5777142fc6726d6ca1fd2ff16921b48788b87225cbc57c72636f6efa8efbffe3
+  languageName: node
+  linkType: hard
+
+"ts-xor@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "ts-xor@npm:1.0.8"
+  checksum: a8b0e30878280bf7e9ae6f1bb7b19a61a23224b86b93f4ec24197382b0e97d973c64b104af2e0428f191334fedb88c0fdc0cf86e8d1fbdbc6d76f5a644f30842
   languageName: node
   linkType: hard
 
