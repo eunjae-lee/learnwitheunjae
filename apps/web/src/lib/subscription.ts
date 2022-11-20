@@ -1,14 +1,16 @@
 import LogRocket from "logrocket";
 
-export type SubscriptionSlug = "pd" | "sinabro-js";
-
 export async function subscribeToEmailList({
   slug,
   email,
 }: {
-  slug: SubscriptionSlug;
+  slug: string;
   email: string;
 }) {
+  if (!["pd", "sinabro-js"].includes(slug)) {
+    throw new Error(`Unknown slug for email list (${slug})`);
+  }
+
   try {
     const response = await fetch("/subscribe", {
       method: "POST",

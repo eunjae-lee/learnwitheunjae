@@ -5,10 +5,7 @@
   import SeeMoreLink from "$lib/components/SeeMoreLink.svelte";
   import Bio from "$lib/components/Bio.svelte";
   import Footer from "$lib/components/Footer.svelte";
-  import SubscriptionBox from "$lib/components/SubscriptionBox.svelte";
   import Meta from "$lib/components/Meta.svelte";
-  import UpgradeJSIntroduction from "./sinabro-js/Introduction.svelte";
-  import PDIntroduction from "./pd/Introduction.svelte";
 </script>
 
 <Meta title="Learn with Eunaje" />
@@ -36,9 +33,9 @@
     </div>
   </section> -->
 
-  <UpgradeJSIntroduction />
+  <!-- <UpgradeJSIntroduction /> -->
 
-  <PDIntroduction />
+  <!-- <PDIntroduction /> -->
 
   <!-- <section>
     <h2 class="text-secondary text-xl font-medium">한 입 거리</h2>

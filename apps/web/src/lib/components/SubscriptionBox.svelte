@@ -1,12 +1,9 @@
 <script lang="ts">
-  import {
-    subscribeToEmailList,
-    type SubscriptionSlug,
-  } from "$lib/subscription";
+  import { subscribeToEmailList } from "$lib/subscription";
   import { CheckCircle, Loader2, XCircle } from "lucide-svelte";
 
   export let title: string;
-  export let slug: SubscriptionSlug;
+  export let slug: string;
 
   let state: "init" | "subscribing" | "subscribed" | "error" = "init";
   let email: string;
