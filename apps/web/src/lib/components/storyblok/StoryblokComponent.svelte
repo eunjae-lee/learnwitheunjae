@@ -4,12 +4,11 @@
   import { components } from "./_componentsMap";
 
   export let story;
-  export let blok;
 </script>
 
 <svelte:component
-  this={components[blok.component]}
-  {blok}
+  this={components[story.content.component]}
   {story}
+  blok={story.content}
   {...$$restProps}
 />

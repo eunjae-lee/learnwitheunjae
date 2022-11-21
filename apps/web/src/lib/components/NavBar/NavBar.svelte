@@ -40,7 +40,7 @@
   ];
 </script>
 
-<div class:bg-secondary={isSecondary}>
+<div class:bg-secondary={isSecondary} class:py-4={isSecondary}>
   <div class="max-w-4xl mx-auto" class:text-base-100={isSecondary}>
     <div class="navbar sm:px-0">
       <div class="navbar-start">

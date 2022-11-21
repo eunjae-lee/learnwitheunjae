@@ -3,7 +3,7 @@
   import Discord from "$lib/components/icons/Discord.svelte";
   import Meta from "$lib/components/Meta.svelte";
   import { ArrowRight } from "lucide-svelte";
-  import NavBar from "../NavBar.svelte";
+  import NavBar from "$lib/components/NavBar/NavBar.svelte";
 </script>
 
 <Meta title="커뮤니티" />

@@ -2,7 +2,7 @@
   import Footer from "$lib/components/Footer.svelte";
   import Meta from "$lib/components/Meta.svelte";
   import { Github, Instagram, Mail, Twitter } from "lucide-svelte";
-  import NavBar from "../NavBar.svelte";
+  import NavBar from "$lib/components/NavBar/NavBar.svelte";
 </script>
 
 <Meta title="소개" />

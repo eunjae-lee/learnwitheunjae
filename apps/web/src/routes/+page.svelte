@@ -1,11 +1,31 @@
-<script>
+<script lang="ts">
   import Hero from "./Hero.svelte";
-  import NavBar from "./NavBar.svelte";
+  import NavBar from "$lib/components/NavBar/NavBar.svelte";
   import VideoLink from "$lib/components/VideoLink.svelte";
   import SeeMoreLink from "$lib/components/SeeMoreLink.svelte";
   import Bio from "$lib/components/Bio.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import Meta from "$lib/components/Meta.svelte";
+  import { type Story, IS_PREVIEW_MODE, enablePreview } from "@lwe/content";
+  import StoryblokComponent from "$lib/components/storyblok";
+  import { onMount } from "svelte";
+
+  const slugs = ["sinabro-js", "pd"];
+
+  export let data: {
+    storyMap: Record<string, Story>;
+  };
+
+  onMount(() => {
+    if (IS_PREVIEW_MODE) {
+      slugs.forEach((slug) => {
+        enablePreview(
+          data.storyMap[slug].id,
+          (newStory) => (data.storyMap[slug] = newStory)
+        );
+      });
+    }
+  });
 </script>
 
 <Meta title="Learn with Eunaje" />
@@ -33,6 +53,9 @@
     </div>
   </section> -->
 
+  {#each slugs as slug (slug)}
+    <StoryblokComponent story={data.storyMap[slug]} />
+  {/each}
   <!-- <UpgradeJSIntroduction /> -->
 
   <!-- <PDIntroduction /> -->

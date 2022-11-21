@@ -1,7 +1,20 @@
+interface ApiErrorOptions extends ErrorOptions {
+  status: number;
+}
+
+export class ApiError extends Error {
+  status: number;
+  constructor(message: string, options: ApiErrorOptions) {
+    super(message, { cause: options?.cause });
+    this.status = options.status;
+  }
+}
+
 export interface StoryContent {
   _uid: string;
   title: string;
   component: string;
+  _editable: string;
 }
 
 export interface Story<ExtraContent = Record<string, never>> {

@@ -1,7 +1,7 @@
 <script lang="ts">
   import Footer from "$lib/components/Footer.svelte";
   import Meta from "$lib/components/Meta.svelte";
-  import NavBar from "../NavBar.svelte";
+  import NavBar from "$lib/components/NavBar/NavBar.svelte";
   import { IS_PREVIEW_MODE, enablePreview } from "@lwe/content";
   import StoryblokComponent from "$lib/components/storyblok";
   import { onMount } from "svelte";
@@ -20,7 +20,7 @@
 <NavBar />
 
 <main class="inner-container my-16">
-  <StoryblokComponent story={data.story} blok={data.story.content} />
+  <StoryblokComponent story={data.story} />
 </main>
 
 <Footer />

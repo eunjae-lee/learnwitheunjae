@@ -1,13 +1,6 @@
 <script lang="ts">
-  // import { storyblokEditable } from "@lwe/content";
-  import { renderRichText } from "@lwe/content";
-  import type {
-    Image,
-    Link,
-    RichText,
-    Story,
-    StoryContent,
-  } from "@lwe/content/src/types";
+  import { renderRichText, storyblokEditable } from "@lwe/content";
+  import type { Image, Link, RichText, Story } from "@lwe/content/src/types";
   import SubscriptionBox from "../SubscriptionBox.svelte";
 
   export let story: Story<{
@@ -20,7 +13,7 @@
   export let blok: typeof story["content"];
 </script>
 
-<section>
+<section use:storyblokEditable={blok}>
   <h2 class="text-secondary text-xl font-medium">{blok.title}</h2>
   <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-16">
     <div class="basis-1/2">
