@@ -5,6 +5,19 @@ import {
 } from "@supabase/auth-helpers-sveltekit";
 import { supabase } from "./client";
 
+export async function signIn() {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "github",
+    options: { redirectTo: window.location.origin + "/in" },
+  });
+  return { data, error };
+}
+
+export async function signOut() {
+  const { error } = await supabase.auth.signOut();
+  return { error };
+}
+
 export function subscribeToAuthStateChange({
   onChange,
 }: {

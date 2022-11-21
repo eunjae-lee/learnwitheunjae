@@ -1,7 +1,7 @@
 <script lang="ts">
   import Footer from "$lib/components/Footer.svelte";
   import Meta from "$lib/components/Meta.svelte";
-  import NavBar from "../../NavBar.svelte";
+  import NavBar from "$lib/components/NavBar/NavBar.svelte";
   import type { Metadata } from "../+page";
   import "./prism-one-dark.css";
 

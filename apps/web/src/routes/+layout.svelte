@@ -5,6 +5,7 @@
   import { invalidate } from "$app/navigation";
   import { subscribeToAuthStateChange } from "@lwe/db";
   import { onMount } from "svelte";
+  import { IS_PREVIEW_MODE } from "@lwe/content";
 
   if (!dev) {
     LogRocket.init("22xiec/learn-with-eunjae");
@@ -23,6 +24,14 @@
 </script>
 
 <slot />
+
+{#if IS_PREVIEW_MODE}
+  <script
+    src="//app.storyblok.com/f/storyblok-v2-latest.js"
+    type="text/javascript"
+  >
+  </script>
+{/if}
 
 <style>
   ::-moz-selection {
