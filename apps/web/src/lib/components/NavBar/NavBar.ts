@@ -1,10 +1,9 @@
-import type { XOR } from "ts-xor";
-
 export type MenuItem = {
   label: string;
   shortLabel?: string;
+  href: string;
   icon?: ConstructorOfATypedSvelteComponent;
-} & XOR<{ href: string }, { onClick: () => void }>;
+};
 
 export function getClassForMenuItem(
   isCurrentPage: boolean,

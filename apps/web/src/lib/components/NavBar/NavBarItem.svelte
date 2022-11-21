@@ -8,12 +8,6 @@
 
 <a
   href={item.href}
-  on:click={(event) => {
-    if (item.onClick) {
-      event.preventDefault();
-      item.onClick();
-    }
-  }}
   class={"flex gap-1 text-sm font-light btn btn-ghost normal-case " +
     getClassForMenuItem(item.href === $page.url.pathname, isSecondary)}
 >

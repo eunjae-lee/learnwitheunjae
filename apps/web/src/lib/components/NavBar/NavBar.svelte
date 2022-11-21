@@ -14,7 +14,6 @@
     MenuItem,
     MenuItems,
   } from "@rgossiaux/svelte-headlessui";
-  import { signIn } from "@lwe/db";
   import type { MenuItem as MenuItemType } from "./NavBar";
   import NavBarItem from "./NavBarItem.svelte";
   import NavBarMenuItem from "./NavBarMenuItem.svelte";
@@ -36,7 +35,7 @@
   ];
 
   const rightMenuItems: MenuItemType[] = [
-    { label: "로그인", icon: Github, onClick: signIn },
+    { label: "로그인", icon: Github, href: "/sign_in" },
   ];
 </script>
 
