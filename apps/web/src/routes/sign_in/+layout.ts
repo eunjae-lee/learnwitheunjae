@@ -1,7 +1,7 @@
-import type { LayoutServerLoad } from ".svelte-kit/types/src/routes/$types";
+import type { LayoutLoad } from ".svelte-kit/types/src/routes/$types";
 import { redirect } from "@sveltejs/kit";
 
-export const load: LayoutServerLoad = async ({ parent }) => {
+export const load: LayoutLoad = async ({ parent }) => {
   // @ts-expect-error not typed yet
   const { session } = await parent();
   if (session && session.user) {

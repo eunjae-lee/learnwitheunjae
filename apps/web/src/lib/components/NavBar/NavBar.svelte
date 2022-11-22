@@ -34,10 +34,9 @@
     { label: "소개", href: "/about", icon: PersonStanding },
   ];
 
-  const rightMenuItems: MenuItemType[] =
-    process.env.NODE_ENV === "development"
-      ? [{ label: "로그인", icon: Github, href: "/sign_in" }]
-      : [];
+  const rightMenuItems: MenuItemType[] = [
+    { label: "로그인", icon: Github, href: "/sign_in" },
+  ];
 </script>
 
 <div class:bg-secondary={isSecondary} class:py-4={isSecondary}>

@@ -1,4 +1,4 @@
-import type { LoadEvent, ServerLoadEvent } from "@sveltejs/kit";
+import type { LoadEvent, ServerLoadEvent, RequestEvent } from "@sveltejs/kit";
 import {
   getSupabase,
   getServerSession as getServerSessionFromSupabase,
@@ -35,11 +35,21 @@ export function subscribeToAuthStateChange({
   };
 }
 
-export async function getClientSession(event: LoadEvent) {
+export async function getSession(event: LoadEvent) {
   const { session } = await getSupabase(event);
   return session;
 }
 
 export async function getServerSession(event: ServerLoadEvent) {
   return await getServerSessionFromSupabase(event);
+}
+
+export async function isAuthenticatedRequest(params: RequestEvent) {
+  // @ts-expect-error actually `getServerSessionFromSupabase` implementation uses only the three keys below
+  const session = await getServerSession({
+    cookies: params.cookies,
+    request: params.request,
+    locals: {},
+  });
+  return Boolean(session);
 }

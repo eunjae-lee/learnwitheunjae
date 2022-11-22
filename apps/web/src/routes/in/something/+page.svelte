@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <div class="w-screen h-screen flex justify-center items-center">
-  You're too early here.
+  Why are you here?
 </div>
