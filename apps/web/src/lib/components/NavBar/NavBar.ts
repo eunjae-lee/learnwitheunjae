@@ -7,11 +7,11 @@ export type MenuItem = {
 
 export function getClassForMenuItem(
   isCurrentPage: boolean,
-  isSecondary: boolean
+  useWhiteUnderline: boolean
 ) {
   return isCurrentPage
     ? `underline underline-offset-4 decoration-2 decoration-wavy ${
-        isSecondary ? "decoration-base-100" : "decoration-primary"
+        useWhiteUnderline ? "decoration-base-100" : "decoration-primary"
       }`
     : "hover:no-underline";
 }

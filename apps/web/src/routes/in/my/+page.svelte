@@ -4,11 +4,9 @@
   import NavBar from "$lib/components/NavBar/NavBar.svelte";
 </script>
 
-<Meta title="Learn with Eunaje" />
+<Meta title="수강 중인 강좌 | Learn with Eunaje" />
 <NavBar />
 
-<main class="inner-container my-16 flex flex-col gap-24">
-  why are you already here?
-</main>
+<main class="inner-container my-16 flex flex-col gap-24">수강 중인 강좌</main>
 
 <Footer />

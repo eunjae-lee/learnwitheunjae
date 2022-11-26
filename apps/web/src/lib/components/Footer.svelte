@@ -2,7 +2,8 @@
   import { page } from "$app/stores";
   const year = new Date().getFullYear();
 
-  const isSecondary = $page.url.pathname !== "/";
+  $: isSecondary =
+    $page.url.pathname !== "/" && !$page.url.pathname.startsWith("/in");
 </script>
 
 <div

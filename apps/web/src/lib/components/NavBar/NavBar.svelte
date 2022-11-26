@@ -7,6 +7,8 @@
     Dices,
     MessageCircle,
     PersonStanding,
+    Flame,
+    Compass,
   } from "lucide-svelte";
   import {
     Menu,
@@ -14,36 +16,63 @@
     MenuItem,
     MenuItems,
   } from "@rgossiaux/svelte-headlessui";
-  import type { MenuItem as MenuItemType } from "./NavBar";
   import NavBarItem from "./NavBarItem.svelte";
   import NavBarMenuItem from "./NavBarMenuItem.svelte";
 
-  const isSecondary = $page.url.pathname !== "/";
+  $: loggedIn = Boolean($page.data.session);
 
-  const centerMenuItems: MenuItemType[] = [
+  $: isHome = $page.url.pathname === "/";
+  $: isPrimary = !isHome && $page.url.pathname.startsWith("/in");
+  $: isSecondary = !isHome && !isPrimary;
+
+  $: centerMenuItems =
+    loggedIn && $page.url.pathname.startsWith("/in")
+      ? [
+          {
+            label: "수강 중인 강좌",
+            href: "/in/my",
+            icon: Flame,
+          },
+          {
+            label: "강좌 둘러보기",
+            href: "/in/explore",
+            icon: Compass,
+          },
+        ]
+      : [
+          {
+            label: "시나브로 자바스크립트",
+            shortLabel: "시나브로 JS",
+            href: "/sinabro-js",
+            icon: Palette,
+          },
+          { label: "퐁당개발", href: "/pd", icon: Dices },
+          // { label: "블로그", href: "/blog" },
+          // { label: "발표", href: "/speak" },
+          { label: "커뮤니티", href: "/community", icon: MessageCircle },
+          { label: "소개", href: "/about", icon: PersonStanding },
+        ];
+
+  $: rightMenuItems = [
     {
-      label: "시나브로 자바스크립트",
-      shortLabel: "시나브로 JS",
-      href: "/sinabro-js",
-      icon: Palette,
+      label: loggedIn
+        ? $page.data.session.user.user_metadata.preferred_username
+        : "로그인",
+      icon: Github,
+      href: loggedIn ? "/in#" : "/sign_in",
     },
-    { label: "퐁당개발", href: "/pd", icon: Dices },
-    // { label: "블로그", href: "/blog" },
-    // { label: "발표", href: "/speak" },
-    { label: "커뮤니티", href: "/community", icon: MessageCircle },
-    { label: "소개", href: "/about", icon: PersonStanding },
-  ];
-
-  const rightMenuItems: MenuItemType[] = [
-    { label: "로그인", icon: Github, href: "/sign_in" },
   ];
 </script>
 
-<div class:bg-secondary={isSecondary} class:py-4={isSecondary}>
-  <div class="max-w-4xl mx-auto" class:text-base-100={isSecondary}>
+<div
+  class:bg-primary={isPrimary}
+  class:bg-secondary={isSecondary}
+  class:py-4={isPrimary || isSecondary}
+>
+  <div class="max-w-4xl mx-auto" class:text-base-100={isPrimary || isSecondary}>
     <div class="navbar sm:px-0">
       <div class="navbar-start">
-        {#if isSecondary}
+        {#if isPrimary || isSecondary}
           <a
             href="/"
             class="sm:-ml-3 btn btn-ghost font-light normal-case hover:no-underline flex flex-col items-start gap-[0.125rem]"
@@ -55,13 +84,13 @@
       </div>
       <div class="navbar-center gap-2 hidden sm:flex">
         {#each centerMenuItems as item}
-          <NavBarItem {item} {isSecondary} />
+          <NavBarItem {item} useWhiteUnderline={isPrimary || isSecondary} />
         {/each}
       </div>
       <div class="navbar-end">
         <div class="hidden sm:flex">
           {#each rightMenuItems as item}
-            <NavBarItem {item} {isSecondary} />
+            <NavBarItem {item} useWhiteUnderline={isPrimary || isSecondary} />
           {/each}
         </div>
         <Menu class="sm:hidden dropdown dropdown-end">
