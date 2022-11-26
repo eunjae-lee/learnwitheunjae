@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import "../app.css";
   import LogRocket from "logrocket";
   import { dev } from "$app/environment";
@@ -6,6 +6,10 @@
   import { subscribeToAuthStateChange } from "@lwe/db";
   import { onMount } from "svelte";
   import { IS_PREVIEW_MODE } from "@lwe/content";
+
+  export let data: {
+    themeColor: string;
+  };
 
   if (!dev) {
     LogRocket.init("22xiec/learn-with-eunjae");
@@ -23,7 +27,9 @@
   });
 </script>
 
-<slot />
+<div style="--theme-color: {data.themeColor}">
+  <slot />
+</div>
 
 {#if IS_PREVIEW_MODE}
   <script
@@ -34,14 +40,14 @@
 {/if}
 
 <style>
-  ::-moz-selection {
+  :global(*)::-moz-selection {
     /* Code for Firefox */
     color: #fbf4ef;
-    background: #202d85;
+    background: var(--theme-color);
   }
 
-  ::selection {
+  :global(*)::selection {
     color: #fbf4ef;
-    background: #202d85;
+    background: var(--theme-color);
   }
 </style>

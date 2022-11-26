@@ -10,8 +10,6 @@
   import StoryblokComponent from "$lib/components/storyblok";
   import { onMount } from "svelte";
 
-  const slugs = ["sinabro-js", "pd"];
-
   export let data: {
     stories: Story[];
   };
@@ -144,16 +142,3 @@
 </main>
 
 <Footer />
-
-<style>
-  ::-moz-selection {
-    /* Code for Firefox */
-    color: #fbf4ef;
-    background: #de4500;
-  }
-
-  ::selection {
-    color: #fbf4ef;
-    background: #de4500;
-  }
-</style>
