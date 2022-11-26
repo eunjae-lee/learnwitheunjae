@@ -7,7 +7,10 @@ export const prerender = false;
 export const load: LayoutLoad = async (event) => {
   const session = await getSession(event);
   if (!session) {
-    throw redirect(307, "/sign_in");
+    throw redirect(
+      307,
+      `/sign_in?redirect_to=${encodeURIComponent(event.url.pathname)}`
+    );
   }
 
   return {

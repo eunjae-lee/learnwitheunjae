@@ -5,10 +5,10 @@ import {
 } from "@supabase/auth-helpers-sveltekit";
 import { supabase } from "./client";
 
-export async function signIn() {
+export async function signIn(redirectTo: string) {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "github",
-    options: { redirectTo: window.location.origin + "/in" },
+    options: { redirectTo: window.location.origin + redirectTo },
   });
   return { data, error };
 }
