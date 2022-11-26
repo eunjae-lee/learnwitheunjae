@@ -1,64 +1,9 @@
-import { PUBLIC_APP_ENVIRONMENT } from "$env/static/public";
-import { env } from "$env/dynamic/public";
 import RichTextResolver from "./richText";
-import { ApiError, type Story, type StoryContent } from "./types";
-
-type Fetch = typeof fetch;
-
-type LoadStoryParams = {
-  slug: string;
-  fetch: Fetch;
-};
-
-type LoadStoriesParams = {
-  slugs: string[];
-  fetch: Fetch;
-};
-
-export const IS_PREVIEW_MODE = PUBLIC_APP_ENVIRONMENT !== "production";
-
-async function request({ fetch, path }: { fetch: Fetch; path: string }) {
-  const accessToken = env.PUBLIC_STORYBLOK_API_KEY;
-  const version = IS_PREVIEW_MODE ? "draft" : "published";
-  const url =
-    `https://api.storyblok.com${path}` +
-    (path.includes("?") ? "&" : "?") +
-    `token=${accessToken}&version=${version}`;
-  const response = await fetch(url, {
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-  });
-  if (response.status !== 200) {
-    throw new ApiError(
-      `${path} failed with ${response.status}(${response.statusText})`,
-      {
-        status: response.status,
-      }
-    );
-  }
-  return await response.json();
-}
-
-export async function loadStory({ slug, fetch }: LoadStoryParams) {
-  return (await request({ fetch, path: `/v2/cdn/stories/${slug}` })) as {
-    story: Story;
-  };
-}
-
-export async function loadStories({ slugs, fetch }: LoadStoriesParams) {
-  return (await request({
-    fetch,
-    path: `/v2/cdn/stories?by_slugs=${slugs
-      .map(encodeURIComponent)
-      .join(encodeURIComponent(","))}`,
-  })) as {
-    stories: Story[];
-  };
-}
+import { type Story, type StoryContent } from "./types";
 
 type PreviewCallback = (story: Story) => void;
+
+type PreviewsCallback = (stories: Story[]) => void;
 
 export async function enablePreview(
   storyId: number,
@@ -77,6 +22,18 @@ export async function enablePreview(
     ) {
       location.reload();
     }
+  });
+}
+
+export async function enablePreviews(
+  stories: Story[],
+  callback: PreviewsCallback
+) {
+  stories.forEach((story, index) => {
+    enablePreview(story.id, (newStory) => {
+      stories[index] = newStory;
+      callback(stories);
+    });
   });
 }
 

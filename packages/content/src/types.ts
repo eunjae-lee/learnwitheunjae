@@ -12,7 +12,6 @@ export class ApiError extends Error {
 
 export interface StoryContent {
   _uid: string;
-  title: string;
   component: string;
   _editable: string;
 }

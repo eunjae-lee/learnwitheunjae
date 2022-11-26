@@ -9,6 +9,5 @@
 <svelte:component
   this={components[story.content.component]}
   {story}
-  blok={story.content}
   {...$$restProps}
 />

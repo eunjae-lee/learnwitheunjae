@@ -4,13 +4,14 @@
   import SubscriptionBox from "../SubscriptionBox.svelte";
 
   export let story: Story<{
+    title: string;
     image: Image;
     image_source_title: string;
     image_source_url: Link;
     description: RichText;
     preparing: boolean;
   }>;
-  export let blok: typeof story["content"];
+  let blok = story.content;
 </script>
 
 <section use:storyblokEditable={blok}>
