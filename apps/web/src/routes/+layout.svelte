@@ -6,10 +6,9 @@
   import { subscribeToAuthStateChange } from "@lwe/db";
   import { onMount } from "svelte";
   import { IS_PREVIEW_MODE } from "@lwe/content";
+  import type { PageData } from "./+layout";
 
-  export let data: {
-    themeColor: string;
-  };
+  export let data: PageData;
 
   if (!dev) {
     LogRocket.init("22xiec/learn-with-eunjae");
