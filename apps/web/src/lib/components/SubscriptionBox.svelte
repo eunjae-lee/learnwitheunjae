@@ -7,11 +7,14 @@
 
   let state: "init" | "subscribing" | "subscribed" | "error" = "init";
   let email: string;
+  let error: string | undefined;
 
   async function onSubmit() {
     state = "subscribing";
+    error = undefined;
     const result = await subscribeToEmailList({ slug, email });
-    state = result ? "subscribed" : "error";
+    state = result.success ? "subscribed" : "error";
+    error = result.error;
   }
 </script>
 
@@ -42,20 +45,30 @@
       </button>
     {/if}
   </div>
+
   {#if state === "subscribed"}
     <p class="mt-2 mx-2 flex items-center gap-1 text-primary">
       <CheckCircle size={16} />
       <span>구독해주셔서 감사합니다.</span>
     </p>
   {:else if state === "error"}
-    <div class="mt-2 alert alert-error shadow-lg">
-      <div>
-        <XCircle size={16} />
-        <span>구독하지 못했습니다.</span>
+    {#if error === "already_subscribed"}
+      <div class="mt-2 alert bg-primary text-base-100 shadow-lg">
+        <div>
+          <XCircle size={16} />
+          <span>이미 구독하셨습니다.</span>
+        </div>
       </div>
-    </div>
-    <p class="mt-2 mx-2">
-      발생한 에러는 방금 기록하였으며, 최대한 빨리 고치도록 하겠습니다.
-    </p>
+    {:else}
+      <div class="mt-2 alert alert-error shadow-lg">
+        <div>
+          <XCircle size={16} />
+          <span>구독하지 못했습니다.</span>
+        </div>
+      </div>
+      <p class="mt-2 mx-2">
+        발생한 에러는 방금 기록하였으며, 최대한 빨리 고치도록 하겠습니다.
+      </p>
+    {/if}
   {/if}
 </form>

@@ -24,7 +24,9 @@ export async function subscribeToEmailList({
     });
 
     if (response.status === 200) {
-      return true;
+      return { success: true };
+    } else if (response.status === 409 && response.statusText === "Conflict") {
+      return { success: false, error: "already_subscribed" };
     } else {
       LogRocket.captureMessage("subscription result is not 200", {
         extra: {
@@ -32,10 +34,10 @@ export async function subscribeToEmailList({
           statustext: response.statusText,
         },
       });
-      return false;
+      return { success: false };
     }
   } catch (err) {
-    LogRocket.captureException(err);
-    return false;
+    LogRocket.captureException(err as Error);
+    return { success: false };
   }
 }
