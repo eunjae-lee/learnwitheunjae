@@ -2,9 +2,9 @@
   import { renderRichText, storyblokEditable } from "@lwe/content";
   import type { Story } from "@lwe/content/src/types";
   import SubscriptionBox from "../SubscriptionBox.svelte";
-  import type { CourseSummary } from "./types";
+  import type { CourseSummaryData } from "./types";
 
-  export let story: Story<CourseSummary>;
+  export let story: Story<CourseSummaryData>;
   let blok = story.content;
 </script>
 

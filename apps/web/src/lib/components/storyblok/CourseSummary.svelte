@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { renderRichText, storyblokEditable } from "@lwe/content";
+  import { renderRichText } from "@lwe/content";
   import SubscriptionBox from "../SubscriptionBox.svelte";
-  import type { CourseSummary } from "./types";
+  import type { CourseSummaryData } from "./types";
 
-  export let summary: CourseSummary;
+  export let summary: CourseSummaryData;
 </script>
 
 <section>

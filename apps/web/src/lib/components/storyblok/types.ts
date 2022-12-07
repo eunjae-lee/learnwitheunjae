@@ -1,6 +1,6 @@
 import type { Image, Link, RichText } from "@lwe/content/src/types";
 
-export type CourseSummary = {
+export type CourseSummaryData = {
   title: string;
   subtitle: string;
   image: Image;
@@ -11,4 +11,14 @@ export type CourseSummary = {
   subscription_slug: string;
   show_detail_button: boolean;
   detail_path: string;
+};
+
+export type AboutData = {
+  title: string;
+  image: Image;
+  description: RichText;
+  twitter: Link;
+  github: Link;
+  instagram: Link;
+  email: string;
 };
