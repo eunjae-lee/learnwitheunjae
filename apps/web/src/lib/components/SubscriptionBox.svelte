@@ -18,7 +18,7 @@
   }
 </script>
 
-<form class="mt-8 sm:mt-6 form-control" on:submit|preventDefault={onSubmit}>
+<form class="form-control" on:submit|preventDefault={onSubmit}>
   <label class="label" for="js-course-email">
     <span class="label-text text-primary">{title}</span>
   </label>

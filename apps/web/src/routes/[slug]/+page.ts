@@ -1,4 +1,4 @@
-import { type ApiError, loadStories } from "@lwe/content";
+import { type ApiError, loadStory } from "@lwe/content";
 import { error, type LoadEvent } from "@sveltejs/kit";
 
 export async function load({ fetch, params }: LoadEvent) {
@@ -6,14 +6,9 @@ export async function load({ fetch, params }: LoadEvent) {
     throw new Error(`slug is undefined (${JSON.stringify(params.slug)})`);
   }
   try {
-    const full_slug = `${params.slug}/`;
-    const result = await loadStories({
-      slugs: [full_slug, `${params.slug}/episodes/*`],
-      fetch,
-    });
+    const result = await loadStory({ slug: `${params.slug}/`, fetch });
     return {
-      ...result,
-      full_slug,
+      story: result.story,
     };
   } catch (err) {
     if ((err as ApiError).status === 404) {

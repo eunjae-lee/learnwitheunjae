@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 
-import course from "./course.svelte";
-import episode from "./episode.svelte";
+import Course from "./Course.svelte";
+import CourseSummary from "./CourseSummary.svelte";
+import Main from "./Main.svelte";
 
 export const components = {
-  course,
-  episode,
+  course: Course,
+  course_summary: CourseSummary,
+  main: Main,
 };

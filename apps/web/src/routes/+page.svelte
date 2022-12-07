@@ -6,18 +6,23 @@
   import Bio from "$lib/components/Bio.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import Meta from "$lib/components/Meta.svelte";
-  import { type Story, IS_PREVIEW_MODE, enablePreviews } from "@lwe/content";
+  import {
+    type Story,
+    IS_PREVIEW_MODE,
+    enablePreviews,
+    enablePreview,
+  } from "@lwe/content";
   import StoryblokComponent from "$lib/components/storyblok";
   import { onMount } from "svelte";
 
   export let data: {
-    stories: Story[];
+    story: Story;
   };
 
   onMount(() => {
     if (IS_PREVIEW_MODE) {
-      enablePreviews(data.stories, (newStories) => {
-        data.stories = newStories;
+      enablePreview(data.story, (newStory) => {
+        data.story = newStory;
       });
     }
   });
@@ -48,9 +53,9 @@
     </div>
   </section> -->
 
-  {#each data.stories as story (story.id)}
-    <StoryblokComponent {story} />
-  {/each}
+  {#key data.story.id}
+    <StoryblokComponent story={data.story} />
+  {/key}
   <!-- <UpgradeJSIntroduction /> -->
 
   <!-- <PDIntroduction /> -->

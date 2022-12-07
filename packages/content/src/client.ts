@@ -1,24 +1,21 @@
 import RichTextResolver from "./richText";
-import { type Story, type StoryContent } from "./types";
+import type { Story, StoryContent } from "./types";
 
 type PreviewCallback = (story: Story) => void;
 
 type PreviewsCallback = (stories: Story[]) => void;
 
-export async function enablePreview(
-  storyId: number,
-  callback: PreviewCallback
-) {
+export async function enablePreview(story: Story, callback: PreviewCallback) {
   // @ts-expect-error bridge is not typed
   const { StoryblokBridge, location } = window;
   const storyblokInstance = new StoryblokBridge();
 
-  storyblokInstance.on(["input", "published", "change"], (event) => {
-    if (event.action === "input" && event.story.id === storyId) {
+  storyblokInstance.on(["input", "published", "change"], (event: any) => {
+    if (event.action === "input" && event.story.id === story.id) {
       callback(event.story);
     } else if (
       (event.action === "change" || event.action === "published") &&
-      event.storyId === storyId
+      event.storyId === story.id
     ) {
       location.reload();
     }
@@ -30,14 +27,14 @@ export async function enablePreviews(
   callback: PreviewsCallback
 ) {
   stories.forEach((story, index) => {
-    enablePreview(story.id, (newStory) => {
+    enablePreview(story, (newStory) => {
       stories[index] = newStory;
       callback(stories);
     });
   });
 }
 
-export function renderRichText(data) {
+export function renderRichText(data: any) {
   return new RichTextResolver().render(data);
 }
 
