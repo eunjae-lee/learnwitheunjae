@@ -6,7 +6,7 @@ export async function load({ fetch, params }: LoadEvent) {
     throw new Error(`slug is undefined (${JSON.stringify(params.slug)})`);
   }
   try {
-    const result = await loadStory({ slug: `${params.slug}/`, fetch });
+    const result = await loadStory({ slug: `${params.slug}/temp`, fetch });
     return {
       story: result.story,
     };
