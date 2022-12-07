@@ -46,7 +46,7 @@
             href: "/sinabro-js",
             icon: Palette,
           },
-          { label: "퐁당개발", href: "/pd", icon: Dices },
+          // { label: "퐁당개발", href: "/pd", icon: Dices },
           // { label: "블로그", href: "/blog" },
           // { label: "발표", href: "/speak" },
           { label: "커뮤니티", href: "/community", icon: MessageCircle },
