@@ -117,6 +117,9 @@
   .rich-text :global(p):first-child {
     @apply mt-0;
   }
+  .rich-text :global(li) {
+    @apply ml-5 sm:ml-0;
+  }
   .rich-text :global(ul > li) {
     @apply list-circle mt-4;
   }
