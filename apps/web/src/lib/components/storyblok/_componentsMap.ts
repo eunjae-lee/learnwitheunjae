@@ -2,13 +2,13 @@
 // @ts-nocheck
 
 import Course from "./Course.svelte";
-import CourseSummary from "./CourseSummary.svelte";
+import CourseDetail from "./CourseDetail.svelte";
 import Main from "./Main.svelte";
 import About from "./About.svelte";
 
 export const components = {
   course: Course,
-  course_summary: CourseSummary,
+  course_detail: CourseDetail,
   main: Main,
   about: About,
 };

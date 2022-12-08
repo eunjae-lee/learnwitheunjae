@@ -1,4 +1,4 @@
-import type { Image, Link, RichText } from "@lwe/content/src/types";
+import type { Image, Link, RichText, Table } from "@lwe/content/src/types";
 
 export type CourseSummaryData = {
   title: string;
@@ -11,6 +11,31 @@ export type CourseSummaryData = {
   subscription_slug: string;
   show_detail_button: boolean;
   detail_path: string;
+};
+
+export type CourseDetailData = {
+  title: string;
+  short_description: string;
+  long_description: RichText;
+  questions: RichText;
+  who_is_it_for: RichText;
+  what_you_will_get: RichText;
+  pricing_table: Table;
+  description_after_pricing_table: RichText;
+  faqs: Faq[];
+  about: Link;
+};
+
+export type Faq = {
+  _uid: string;
+  title: string;
+  items: FaqItem[];
+};
+
+export type FaqItem = {
+  _uid: string;
+  question: RichText;
+  answer: RichText;
 };
 
 export type AboutData = {

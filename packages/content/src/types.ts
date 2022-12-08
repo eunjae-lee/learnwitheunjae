@@ -73,3 +73,17 @@ export interface Link {
   fieldtype: string;
   cached_url: string;
 }
+
+export interface Table {
+  thead: Array<{
+    _uid: string;
+    value: string;
+  }>;
+  tbody: Array<{
+    _uid: string;
+    body: Array<{
+      _uid: string;
+      value: string;
+    }>;
+  }>;
+}

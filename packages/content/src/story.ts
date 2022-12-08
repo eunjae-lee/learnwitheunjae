@@ -1,6 +1,6 @@
 import { PUBLIC_APP_ENVIRONMENT } from "$env/static/public";
 import { env } from "$env/dynamic/public";
-import { ApiError, type Story } from "./types";
+import { ApiError, type Link, type Story } from "./types";
 
 type Fetch = typeof fetch;
 
@@ -52,6 +52,7 @@ export async function loadStory({ slug, fetch, options }: LoadStoryParams) {
     path: `/v2/cdn/stories/${slug}?${extraParams}`,
   })) as {
     story: Story;
+    links: Link[];
   };
 }
 

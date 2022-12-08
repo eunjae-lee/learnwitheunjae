@@ -4,6 +4,12 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
+    listStyleType: {
+      none: "none",
+      disc: "disc",
+      decimal: "decimal",
+      circle: "circle",
+    },
     extend: {
       fontFamily: {
         sans: [

@@ -13,7 +13,7 @@
   <p class="mt-8">
     <img class="w-48" src={data.image.filename} alt="Eunjae Lee" />
   </p>
-  <div class="mt-8 flex flex-col gap-6">
+  <div class="mt-8 flex flex-col gap-6 leading-relaxed">
     {@html renderRichText(data.description)}
   </div>
   <div class="mt-8 text-base flex flex-col gap-2 sm:flex-row sm:gap-6">

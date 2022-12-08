@@ -2,7 +2,7 @@
   import { storyblokEditable } from "@lwe/content";
   import type { Story } from "@lwe/content/src/types";
   import type { CourseSummaryData } from "./types";
-  import CourseSummary from "./CourseSummary.svelte";
+  import CourseSummary from "./_CourseSummary.svelte";
 
   export let story: Story<{
     course_summaries: CourseSummaryData[];
