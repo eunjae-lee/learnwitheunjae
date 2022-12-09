@@ -1,5 +1,6 @@
 <script lang="ts">
   import { renderRichText } from "@lwe/content";
+  import { ArrowRight } from "lucide-svelte";
   import SubscriptionBox from "../SubscriptionBox.svelte";
   import type { CourseSummaryData } from "./types";
 
@@ -26,19 +27,22 @@
       <div class="flex flex-col gap-4 font-light leading-relaxed">
         {@html renderRichText(summary.description)}
       </div>
-      <div class="mt-8 sm:mt-6">
-        {#if summary.show_detail_button}
-          <div class="flex justify-end">
-            <a
-              class="w-full btn btn-primary hover:no-underline"
-              href={summary.detail_path}>소개 더보기</a
-            >
-          </div>
-        {:else if summary.show_subscription_box}
+      <div class="mt-8 sm:mt-6 flex flex-col gap-8">
+        {#if summary.show_subscription_box}
           <SubscriptionBox
             title={`${summary.title} 런칭 소식 받기`}
             slug={summary.subscription_slug}
+            useOutlineButton={summary.show_detail_button}
           />
+        {/if}
+        {#if summary.show_detail_button}
+          <div class="flex justify-end">
+            <a
+              class="w-full btn btn-primary hover:no-underline gap-1"
+              href={summary.detail_path}
+              ><span>자세한 강좌 소개</span><ArrowRight size={16} /></a
+            >
+          </div>
         {/if}
       </div>
     </div>

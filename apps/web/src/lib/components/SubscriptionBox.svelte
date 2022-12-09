@@ -4,6 +4,7 @@
 
   export let title: string;
   export let slug: string;
+  export let useOutlineButton: boolean = false;
 
   let state: "init" | "subscribing" | "subscribed" | "error" = "init";
   let email: string;
@@ -24,16 +25,18 @@
   </label>
   <div class="flex gap-2">
     <input
-      type="text"
+      type="email"
       placeholder="이메일 주소"
       name="js-course-email"
       class="input input-primary input-bordered w-full"
       bind:value={email}
+      required
     />
     {#if state === "init" || state === "subscribing"}
       <button
         disabled={state !== "init"}
         class="w-28 btn btn-primary font-medium"
+        class:btn-outline={useOutlineButton}
       >
         {#if state === "init"}
           소식 받기

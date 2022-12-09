@@ -24,6 +24,8 @@ export type CourseDetailData = {
   description_after_pricing_table: RichText;
   faqs: Faq[];
   about: Link;
+  show_subscription_box: boolean;
+  subscription_slug: string;
 };
 
 export type Faq = {

@@ -3,7 +3,7 @@
   import type { AboutData, CourseDetailData } from "./types";
   import Table from "./_Table.svelte";
   import About from "./_About.svelte";
-  import { Twitter } from "lucide-svelte";
+  import SubscriptionBox from "../SubscriptionBox.svelte";
 
   export let story: Story<CourseDetailData>;
   export let links: Story<AboutData>[];
@@ -16,16 +16,13 @@
     <h1 class="text-secondary text-4xl font-medium">{blok.title}</h1>
     <p class="mt-4 text-xl font-medium opacity-75">{blok.short_description}</p>
 
-    <div class="mt-8">
-      <a
-        class="btn btn-primary hover:no-underline btn-lg normal-case gap-2 py-4 h-[unset] font-light leading-relaxed"
-        href="https://twitter.com/messages/compose?recipient_id=1490226821903925248&text=%EC%8B%9C%EB%82%98%EB%B8%8C%EB%A1%9C%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%20%EC%82%AC%EC%A0%84%20%EA%B5%AC%EB%A7%A4%20%EC%8B%A0%EC%B2%AD%ED%95%A9%EB%8B%88%EB%8B%A4."
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Twitter size={18} />
-        사전구매 신청하기 (@eunjae_lee_ko 으로 디엠)
-      </a>
+    <div class="mt-8 max-w-md">
+      {#if blok.show_subscription_box}
+        <SubscriptionBox
+          title={`${blok.title} 소식 받기`}
+          slug={blok.subscription_slug}
+        />
+      {/if}
     </div>
   </div>
 
@@ -87,17 +84,14 @@
     </div>
   {/each}
 
-  <div>
-    <a
-      class="btn btn-primary hover:no-underline btn-lg normal-case gap-2 py-4 h-[unset] font-light leading-relaxed"
-      href="https://twitter.com/messages/compose?recipient_id=1490226821903925248&text=%EC%8B%9C%EB%82%98%EB%B8%8C%EB%A1%9C%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%20%EC%82%AC%EC%A0%84%20%EA%B5%AC%EB%A7%A4%20%EC%8B%A0%EC%B2%AD%ED%95%A9%EB%8B%88%EB%8B%A4."
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Twitter size={18} />
-      사전구매 신청하기 (@eunjae_lee_ko 으로 디엠)
-    </a>
-  </div>
+  {#if blok.show_subscription_box}
+    <div class="max-w-md">
+      <SubscriptionBox
+        title={`${blok.title} 소식 받기`}
+        slug={blok.subscription_slug}
+      />
+    </div>
+  {/if}
 
   <div class="mt-16"><About data={about} /></div>
 </section>

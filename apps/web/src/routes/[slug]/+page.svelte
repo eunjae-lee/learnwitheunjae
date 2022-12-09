@@ -25,7 +25,10 @@
   });
 </script>
 
-<Meta title={data.story.name} />
+<Meta
+  title={data.story.name}
+  description={data.story.content.short_description}
+/>
 
 <NavBar />
 

@@ -32,8 +32,11 @@
   <meta property="og:title" content={fullTitle} />
   <meta property="og:image" content={ogImage} />
 
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content="summary" />
   <meta property="twitter:url" content={url} />
   <meta name="twitter:title" content={fullTitle} />
-  <meta name="twitter:image" content={ogImage} />
+  <meta
+    name="twitter:image"
+    content="https://learnwitheunjae.dev/twitter_image.png"
+  />
 </svelte:head>
