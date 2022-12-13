@@ -20,6 +20,7 @@ export type CourseDetailData = {
   questions: RichText;
   who_is_it_for: RichText;
   what_you_will_get: RichText;
+  episodes_table: EpisodesTable[];
   pricing_table: Table;
   description_after_pricing_table: RichText;
   faqs: Faq[];
@@ -48,4 +49,13 @@ export type AboutData = {
   github: Link;
   instagram: Link;
   email: string;
+};
+
+export type EpisodesTable = {
+  title: string;
+  description: RichText;
+  episodes: Array<{
+    title: string;
+    description: RichText;
+  }>;
 };

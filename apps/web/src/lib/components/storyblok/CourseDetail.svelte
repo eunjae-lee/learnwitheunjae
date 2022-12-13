@@ -4,6 +4,7 @@
   import Table from "./_Table.svelte";
   import About from "./_About.svelte";
   import SubscriptionBox from "../SubscriptionBox.svelte";
+  import EpisodesTable from "./_EpisodesTable.svelte";
 
   export let story: Story<CourseDetailData>;
   export let links: Story<AboutData>[];
@@ -11,7 +12,10 @@
   let about = links[0].content;
 </script>
 
-<section use:storyblokEditable={blok} class="flex flex-col gap-24">
+<section
+  use:storyblokEditable={blok}
+  class="course-detail flex flex-col gap-24"
+>
   <div>
     <h1 class="text-secondary text-4xl font-medium">{blok.title}</h1>
     <p class="mt-4 text-xl font-medium opacity-75">{blok.short_description}</p>
@@ -51,6 +55,12 @@
     </div>
   </div>
 
+  <div class="flex flex-col gap-24">
+    {#each blok.episodes_table as episodes_table}
+      <EpisodesTable data={episodes_table} />
+    {/each}
+  </div>
+
   <div>
     <h2>강의 가격</h2>
     <div class="mt-6">
@@ -75,7 +85,7 @@
             <summary>
               {@html renderRichText(item.question)}
             </summary>
-            <div>
+            <div class="my-2">
               {@html renderRichText(item.answer)}
             </div>
           </details>
@@ -97,45 +107,53 @@
 </section>
 
 <style>
-  h2,
-  .rich-text :global(h2) {
+  .course-detail :global(h2),
+  .course-detail :global(.rich-text h2) {
     @apply text-secondary text-2xl font-medium;
   }
 
-  .rich-text {
+  .course-detail :global(.rich-text) {
     @apply text-lg font-light leading-relaxed;
   }
-  .rich-text :global(p) {
+  .course-detail :global(.rich-text p) {
     @apply mt-4;
   }
-  .rich-text :global(p):first-child {
+  .course-detail :global(.rich-text p:first-child) {
     @apply mt-0;
   }
-  .rich-text :global(li) {
+  .course-detail :global(.rich-text li) {
     @apply ml-5 sm:ml-0;
   }
-  .rich-text :global(ul > li) {
+  .course-detail :global(.rich-text ul > li) {
     @apply list-circle mt-4;
   }
-  .rich-text :global(ol > li) {
+  .course-detail :global(.rich-text ol > li) {
     @apply list-decimal mt-4;
   }
-  :global(details) {
+  .course-detail :global(details) {
     @apply leading-relaxed;
   }
-  :global(details a) {
+  .course-detail :global(details a) {
     @apply text-primary;
   }
-  :global(summary) {
+  .course-detail :global(summary) {
     @apply cursor-pointer font-medium;
   }
-  :global(summary > p) {
+  .course-detail :global(summary > p) {
     @apply inline-block ml-2;
   }
-  :global(summary + div) {
-    @apply my-2 font-light;
+  .course-detail :global(summary + div) {
+    @apply font-light;
   }
-  :global(summary + div > p) {
+  .course-detail :global(summary + div > p) {
     @apply mt-4;
+  }
+
+  .course-detail :global(pre) {
+    @apply bg-gray-800 text-gray-400 rounded-md text-sm py-2 px-4 inline-block;
+  }
+
+  .course-detail :global(p > code) {
+    @apply border border-primary text-primary text-sm rounded-md py-1 px-2 font-normal;
   }
 </style>
