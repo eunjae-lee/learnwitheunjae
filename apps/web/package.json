@@ -39,6 +39,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@fast-csv/parse": "^4.3.6",
     "@lwe/course": "*",
     "@rgossiaux/svelte-headlessui": "^1.0.2",
     "logrocket": "^3.0.1",
