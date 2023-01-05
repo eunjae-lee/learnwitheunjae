@@ -5,7 +5,7 @@ import { parseString } from "@fast-csv/parse";
 import csv from "./Divi-Engine-WooCommerce-Sample-Products.csv?raw";
 
 export async function GET() {
-  const result = await new Promise((resolve) => {
+  const result: any[] = await new Promise((resolve) => {
     const rows: any[] = [];
     parseString(csv, { headers: true })
       .on("data", (row) => {
@@ -18,5 +18,9 @@ export async function GET() {
       });
   });
 
-  return json(result);
+  return json(
+    result.map(
+      (product) => product.id && product.regularPrice && product.images[0]
+    )
+  );
 }
