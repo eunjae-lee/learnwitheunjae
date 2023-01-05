@@ -10,6 +10,7 @@ export async function GET() {
     parseString(csv, { headers: true })
       .on("data", (row) => {
         row.images = row.images.split(",").map((image: string) => image.trim());
+        row.regularPrice = parseFloat(row.regularPrice);
         return rows.push(row);
       })
       .on("end", () => {
