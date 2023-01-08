@@ -19,7 +19,7 @@ export async function GET() {
   });
 
   return json(
-    result.map(
+    result.filter(
       (product) => product.id && product.regularPrice && product.images[0]
     )
   );
