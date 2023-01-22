@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from '$app/stores';
   import {
     Menu as MenuIcon,
     Github,
@@ -9,57 +9,52 @@
     PersonStanding,
     Flame,
     Compass,
-  } from "lucide-svelte";
-  import {
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuItems,
-  } from "@rgossiaux/svelte-headlessui";
-  import NavBarItem from "./NavBarItem.svelte";
-  import NavBarMenuItem from "./NavBarMenuItem.svelte";
+    FileText,
+  } from 'lucide-svelte';
+  import { Menu, MenuButton, MenuItem, MenuItems } from '@rgossiaux/svelte-headlessui';
+  import NavBarItem from './NavBarItem.svelte';
+  import NavBarMenuItem from './NavBarMenuItem.svelte';
 
   $: loggedIn = Boolean($page.data.session);
 
-  $: isHome = $page.url.pathname === "/";
-  $: isPrimary = !isHome && $page.url.pathname.startsWith("/in");
+  $: isHome = $page.url.pathname === '/';
+  $: isPrimary = !isHome && $page.url.pathname.startsWith('/in');
   $: isSecondary = !isHome && !isPrimary;
 
   $: centerMenuItems =
-    loggedIn && $page.url.pathname.startsWith("/in")
+    loggedIn && $page.url.pathname.startsWith('/in')
       ? [
           {
-            label: "수강 중인 강좌",
-            href: "/in/my",
+            label: '수강 중인 강좌',
+            href: '/in/my',
             icon: Flame,
           },
           {
-            label: "강좌 둘러보기",
-            href: "/in/explore",
+            label: '강좌 둘러보기',
+            href: '/in/explore',
             icon: Compass,
           },
         ]
       : [
           {
-            label: "시나브로 자바스크립트",
-            shortLabel: "시나브로 JS",
-            href: "/sinabro-js",
+            label: '시나브로 자바스크립트',
+            shortLabel: '시나브로 JS',
+            href: '/sinabro-js',
             icon: Palette,
           },
           // { label: "퐁당개발", href: "/pd", icon: Dices },
           // { label: "블로그", href: "/blog" },
           // { label: "발표", href: "/speak" },
-          { label: "커뮤니티", href: "/community", icon: MessageCircle },
-          { label: "소개", href: "/about", icon: PersonStanding },
+          { label: '커뮤니티', href: '/community', icon: MessageCircle },
+          { label: '블로그', href: '/blog', icon: FileText },
+          { label: '소개', href: '/about', icon: PersonStanding },
         ];
 
   $: rightMenuItems = [
     {
-      label: loggedIn
-        ? $page.data.session.user.user_metadata.preferred_username
-        : "로그인",
+      label: loggedIn ? $page.data.session.user.user_metadata.preferred_username : '로그인',
       icon: Github,
-      href: loggedIn ? "/in#" : "/sign_in",
+      href: loggedIn ? '/in#' : '/sign_in',
     },
   ];
 </script>
