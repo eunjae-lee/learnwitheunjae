@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { dev } from '$app/environment';
   import {
     Menu as MenuIcon,
     Github,
@@ -51,12 +52,12 @@
         ];
 
   $: rightMenuItems = [
-    {
+    dev && {
       label: loggedIn ? $page.data.session.user.user_metadata.preferred_username : '로그인',
       icon: Github,
       href: loggedIn ? '/in#' : '/sign_in',
     },
-  ];
+  ].filter(Boolean);
 </script>
 
 <div
