@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { renderRichText } from "@lwe/content";
-  import { Github, Instagram, Mail, Twitter } from "lucide-svelte";
-  import type { AboutData } from "./types";
+  import { renderRichText } from '@lwe/content';
+  import { Github, Instagram, Mail, Twitter } from 'lucide-svelte';
+  import type { AboutData } from './types';
 
   export let data: AboutData;
 </script>
@@ -13,10 +13,10 @@
   <p class="mt-8">
     <img class="w-48" src={data.image.filename} alt="Eunjae Lee" />
   </p>
-  <div class="mt-8 flex flex-col gap-6 leading-relaxed">
+  <div class="mt-8 flex flex-col gap-6 leading-relaxed font-light">
     {@html renderRichText(data.description)}
   </div>
-  <div class="mt-8 text-base flex flex-col gap-2 sm:flex-row sm:gap-6">
+  <div class="mt-8 text-base flex flex-col gap-2 sm:flex-row sm:gap-6 font-light">
     <a
       class="flex items-center gap-1 no-underline"
       rel="noreferrer"

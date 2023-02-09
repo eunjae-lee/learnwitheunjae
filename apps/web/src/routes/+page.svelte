@@ -1,19 +1,15 @@
 <script lang="ts">
-  import Hero from "./Hero.svelte";
-  import NavBar from "$lib/components/NavBar/NavBar.svelte";
-  import VideoLink from "$lib/components/VideoLink.svelte";
-  import SeeMoreLink from "$lib/components/SeeMoreLink.svelte";
-  import Bio from "$lib/components/Bio.svelte";
-  import Footer from "$lib/components/Footer.svelte";
-  import Meta from "$lib/components/Meta.svelte";
-  import {
-    type Story,
-    IS_PREVIEW_MODE,
-    enablePreviews,
-    enablePreview,
-  } from "@lwe/content";
-  import StoryblokComponent from "$lib/components/storyblok";
-  import { onMount } from "svelte";
+  import Hero from './Hero.svelte';
+  import NavBar from '$lib/components/NavBar/NavBar.svelte';
+  import VideoLink from '$lib/components/VideoLink.svelte';
+  import SeeMoreLink from '$lib/components/SeeMoreLink.svelte';
+  import Bio from '$lib/components/Bio.svelte';
+  import Footer from '$lib/components/Footer.svelte';
+  import Meta from '$lib/components/Meta.svelte';
+  import { type Story, IS_PREVIEW_MODE, enablePreviews, enablePreview } from '@lwe/content';
+  import StoryblokComponent from '$lib/components/storyblok';
+  import { onMount } from 'svelte';
+  import { PODIA_HOST } from '../config';
 
   export let data: {
     story: Story;
@@ -79,20 +75,13 @@
 
   <section>
     <h2 class="text-secondary text-xl font-medium">모든 강좌</h2>
-    <ol
-      class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-x-16 sm:gap-y-12"
-    >
+    <ol class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-x-16 sm:gap-y-12">
       <li>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://courses.eunjae.dev/new-job"
-          title="이직 이야기"
-        >
+        <a target="_blank" rel="noreferrer" href={`${PODIA_HOST}/new-job`} title="이직 이야기">
           <p class="mt-3 text-lg line-clamp-1">이직 이야기</p>
           <p class="mt-2 font-light line-clamp-3">
-            프랑스 회사를 다니다가 미국 회사로의 이직을 결심한 계기와 과정,
-            그리고 그 결과를 자세히 풀어 소개합니다.
+            프랑스 회사를 다니다가 미국 회사로의 이직을 결심한 계기와 과정, 그리고 그 결과를 자세히
+            풀어 소개합니다.
           </p>
         </a>
       </li>
@@ -100,14 +89,13 @@
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://courses.eunjae.dev/in-paris"
+          href={`${PODIA_HOST}/in-paris`}
           title="파리에 사는 개발자"
         >
           <p class="mt-3 text-lg line-clamp-1">파리에 사는 개발자</p>
           <p class="mt-2 font-light line-clamp-3">
-            2019년 ~ 2022년에 프랑스의 Algolia라는 회사에서 근무했습니다. 이
-            회사에 이력서를 넣은 계기와, 이사 오기까지의 과정, 그리고 여러 배운
-            점과 제 생각을 공유하고자 합니다.
+            2019년 ~ 2022년에 프랑스의 Algolia라는 회사에서 근무했습니다. 이 회사에 이력서를 넣은
+            계기와, 이사 오기까지의 과정, 그리고 여러 배운 점과 제 생각을 공유하고자 합니다.
           </p>
         </a>
       </li>
@@ -115,16 +103,13 @@
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://courses.eunjae.dev/solo-hackathon"
+          href={`${PODIA_HOST}/solo-hackathon`}
           title="SaaS, 처음부터 끝까지 라이브로 개발하기"
         >
-          <p class="mt-3 text-lg line-clamp-1">
-            SaaS, 처음부터 끝까지 라이브로 개발하기
-          </p>
+          <p class="mt-3 text-lg line-clamp-1">SaaS, 처음부터 끝까지 라이브로 개발하기</p>
           <p class="mt-2 font-light line-clamp-3">
-            프로젝트 설계부터 런칭까지, SaaS 프로젝트를 만들어가는 모든 과정을
-            소개합니다. 나홀로 해커톤 형태로 진행되는 개발 실황을 통째로
-            보여드립니다.
+            프로젝트 설계부터 런칭까지, SaaS 프로젝트를 만들어가는 모든 과정을 소개합니다. 나홀로
+            해커톤 형태로 진행되는 개발 실황을 통째로 보여드립니다.
           </p>
         </a>
       </li>
@@ -132,9 +117,8 @@
         <a href="/spn" title="사이드 프로젝트 뉴스레터">
           <p class="mt-3 text-lg line-clamp-1">사이드 프로젝트 뉴스레터</p>
           <p class="mt-2 font-light line-clamp-3">
-            사이드 프로젝트 뉴스레터는 비정기적으로 발행됩니다. 사이드
-            프로젝트를 좋아하시거나, 좋아하고 싶으신 분들에게 관련 소식을
-            전해드려요.
+            사이드 프로젝트 뉴스레터는 비정기적으로 발행됩니다. 사이드 프로젝트를 좋아하시거나,
+            좋아하고 싶으신 분들에게 관련 소식을 전해드려요.
           </p>
         </a>
       </li>

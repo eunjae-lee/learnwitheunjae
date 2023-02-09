@@ -52,7 +52,7 @@
         ];
 
   $: rightMenuItems = [
-    dev && {
+    false && {
       label: loggedIn ? $page.data.session.user.user_metadata.preferred_username : '로그인',
       icon: Github,
       href: loggedIn ? '/in#' : '/sign_in',
