@@ -20,6 +20,8 @@
 <main class="narrow-inner-container my-16">
   <h1 class="mt-8 text-secondary text-xl font-medium">{data.metadata.title}</h1>
 
+  <p class="mt-2 text-xs font-light">{new Date(data.metadata.createdAt).toLocaleDateString()}</p>
+
   <div class="mt-8">
     <Article content={data.content} />
   </div>

@@ -20,7 +20,7 @@
     {#each posts as post}
       <li>
         <a href={`/blog/${post.slug}`} title={post.metadata.title}>
-          <p class="mt-3 text-2xl line-clamp-1">{post.metadata.title}</p>
+          <p class="mt-3 text-xl line-clamp-1">{post.metadata.title}</p>
           <p class="mt-3 opacity-75 line-clamp-3 font-light">{post.metadata.excerpt}</p>
         </a>
       </li>
