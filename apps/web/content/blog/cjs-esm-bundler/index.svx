@@ -1,9 +1,158 @@
 ---
 slug: "cjs-esm-bundler"
-excerpt: "Hi"
+excerpt: "Common JS, ES Modules, Bundler, .. 이 모든 것들이 왜 생겼고 어떻게 돌아가는지 설명합니다."
 title: "Common JS, ES Modules, Bundler, ..."
 createdAt: 2023-03-23T21:03:05.000Z
 ---
 
 
-Test post!
+Node.js 에는 `require()` 가 있지만 브라우저에는 `require()` 가 없어요. 터미널 열고, 
+
+```
+$ node
+Welcome to Node.js v16.18.1.
+Type ".help" for more information.
+> require 
+```
+
+입력해보면, `function` 이라고 뜨죠.
+
+브라우저 콘솔에 `require` 치면 
+
+```
+Uncaught ReferenceError: require is not defined
+```
+
+그런데 프론트엔드 코딩에 require 가 등장해요. 
+
+```
+<script src="./module1.js"></script>
+<script src="./module2.js"></script>
+<script src="./module3.js"></script>
+<script src="./module4.js"></script>
+```
+
+이렇게 쭉 global 하게 때려넣던 방식에서 벗어나서,
+
+"지금 이 파일에서는 이 모듈을 require 해서 사용할 거야." 라는 보다 명시적인 모듈간의 의존 관계가 생기고, global namespace 에 뭐가 뭐를 덮어쓰고 있는지 관리가 통 안되는 상황도 피할 수 있....
+
+으려면, 브라우저에 require 가 있어야 하는데 없잖아요? Node.js 에서야 있지만요.
+
+그래서 사람들은 require() 구문을 여전히 쓰고 싶었어요. 그래서 require() 구문은 여전히 쓰되 빌드 과정에서는 저 구문을 싹 지워버리는 거에요. 예를 들어서,
+
+a.js 에서
+
+```js
+var b = require("./b")
+console.log(b)
+```
+
+그리고 b.js 내용이
+
+```js
+module.exports = "Hi"
+```
+
+이랬다면, 이 a.js 와 b.js 를 bundle 하고 난 결과물은
+
+```js
+// index.js
+
+var b = "Hi"
+console.log(b);
+```
+
+이렇게 require() 는 사라지고 그걸 한데 묶어주는.. bundle 이 일어나는 거죠. 그렇게 Browserify 혹은 webpack 같은 툴들이 탄생하고 계속 발전해왔죠.
+
+저 require / module.exports = .. 를 CommonJS 형태의 모듈 시스템이라 불렀다면, 이젠 ES Module 이라고 불리는 import / export 형태의 모듈 시스템이 등장해요.
+
+```js
+var myModule = require("<some-module-name>")
+```
+
+이렇게 가져온 myModule 내에 메소드가 100개 있다고 쳤을 때, 그 중 얼마나 쓰는지 bundler 입장에선 알 수가 없죠. 그냥 bundle 하는 과정에 통째로 합쳐버리니까 bundle output 크기가 엄청 커지는 거에요. 예를 들어서,
+
+```js
+// app.js 에서
+var user = require('./user')
+console.log(user. name)
+
+// user.js
+module.exports = {
+  name: 'Eunjae',
+  address: '...',
+  phone: '..'
+}
+```
+
+그러면 bundle output 은 어떤 식이냐면,
+
+```js
+// index.js
+var user = {
+  name: 'Eunjae',
+  address: '...',
+  phone: '..'
+}
+console.log(user. name)
+```
+
+이렇게 되는데요. 근데 지금 보면 address 랑 phone 은 user.js 에서 가져올 필요 없는 데이터였잖아요. 결과물 사이즈가 불필요하게 커진거죠.
+
+그래서 나온 게 ES Module 이에요. 보다 정적으로 분석할 수 있게끔 하려고요. 같은 예제를 다시 쓰면,
+
+```js
+// app.js
+import { name } from './user'
+console.log(name)
+
+// user.js
+export const name = 'Eunjae'
+
+export const address = '..'
+
+export const phone = '..'
+```
+
+이렇게 작성했다면 결과물은
+
+```
+// index.js
+const name = 'Eunjae'
+console.log(name)
+```
+
+이렇게 끝나죠. CJS 에 비해 ESM 에서는 그 모듈의 무엇을 가져다 쓸 건지 명시적으로(explicitly) 지정할 수 있기 때문에 ES Module 을 지원하는 요즘 bundler 들이 좀더 똑똑하게 일을 할 수 있게 됐어요.
+
+하지만, require 가 브라우저에 없는 것과 마찬가지로 import 도 브라우저에 없는 거에요. (일부 브라우저는 지원하기 시작했지만 지원하지 않는 브라우저가 하나라도 있으면 그 코드는 그 브라우저에서 깨지는 거니, 일단 못 쓰는 상황)
+
+그래서 여전히 bundler 들은 import 든 require 든 죄다 bundle 해서 실제 결과물 js 파일에는 import 와 require 구문을 찾아볼 수 없게 만들고, 그렇게 만들어진 파일은
+
+```html
+<script src="./index.dif98w.js"></script>
+```
+
+이렇게 전통적인 방식으로 HTML 에 포함되어 배포가 되는 거죠.
+
+그런데! 요즘 모던 브라우저들은 import 를 적당히 다 지원한답니다.
+
+```html
+<script type="module">
+  import { name } from './user.js'
+  console.log(name)
+</script>
+```
+
+이렇게 <script> 태그에 type="module" 을 넣어주면, 그 안에서 import 구문을 사용할 수 있게 됐어요.
+
+하지만, 그렇다고 bundler 를 우리가 버릴 수 있는 건 아니에요. 브라우저가 할 수 없는 걸 bundler 가 할 수 있게 해주었고, 그렇게 bundling 이라는 과정이 생기면서 거기에 이런 저런 다양한 것들을 우린 넣기 시작했죠. 예를 들면 .sass 파일을 변환해서 .css 파일을 만들어 낸다던가? 그런 것들이 잔뜩 생겨 버렸으니, 이제 브라우저가 import 하나 지원한다고 bundler 를 버리기엔 이미 bundler 의존도가 너무 높아진 상황이에요. 어찌보면 브라우저라는 표준과는 달리, 사람들이 그때 그때 필요에 의해 bundler 를 만들고 발전시키는 과정에서 많은 혼란이 있었죠.
+
+어디서 어디까지가 자바스크립트고, 어디서 어디까지가 브라우저의 API 고, 어디서 어디까지가 webpack 설정이고, 어디서 어디까지가 Next.js 의 설정이고... 이 모든 것들의 스파게티 짬뽕 상황이 아주 골치 아프게 펼쳐졌고, 업계는 여전히 이걸 더 정리하려고 노력은 하고 있죠.
+
+그래서 이걸 아주 명확하게 이해하고 사용하는 사람보단 에러 메시지 구글링해서 해결해나가는 사람이 훨씬 많다 생각해요. 저도 이렇게 적으면서 머리 속에 파편화 된 정보들을 가까스로 얼기설기 정리해봤는데요. 인과관계가 약간 뒤바뀌었거나 다소 부정확한 부분이 있을 수 있습니다. 아시는 분은, 혹은 긴가민가한 부분은 댓글 주시면 같이 답을 찾아가 볼 수 있을 거 같고, 그렇지 않은 분은 대강
+
+'아 저런 중구난방의 역사가 있어서 이렇구나.'
+
+라고 받아들이시면 좀 나을 거 같아요. 지금 여러분이 쓰시는 모든 것들이 다 최고의 상태라기보단 어딘가의 과도기적 산물일 가능성이 높거든요. 그러니까 '이거 꽤 구린 거 같은데, 이게 맞아??' 라는 생각이 드신다면, 여러분 생각이 의외로 맞는 거일 수 있습니다.
+
+https://twitter.com/eunjae_lee_ko/status/1639007615245230087
