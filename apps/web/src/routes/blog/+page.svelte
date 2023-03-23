@@ -18,7 +18,7 @@
 
   <ol class="mt-16">
     {#each posts as post}
-      <li>
+      <li class="mt-16">
         <a href={`/blog/${post.slug}`} title={post.metadata.title}>
           <p class="mt-3 text-xl line-clamp-1">{post.metadata.title}</p>
           <p class="mt-3 opacity-75 line-clamp-3 font-light">{post.metadata.excerpt}</p>
