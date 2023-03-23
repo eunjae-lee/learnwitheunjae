@@ -2,7 +2,8 @@
 slug: "cjs-esm-bundler"
 excerpt: "Hi"
 title: "Common JS, ES Modules, Bundler, ..."
+createdAt: 2023-03-23T21:03:05.000Z
 ---
 
 
-Test post.
+Test post!
