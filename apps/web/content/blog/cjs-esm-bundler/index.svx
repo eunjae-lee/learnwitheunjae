@@ -1,7 +1,8 @@
 ---
 slug: "cjs-esm-bundler"
+excerpt: "Hi"
 title: "Common JS, ES Modules, Bundler, ..."
 ---
 
 
-Test Post
+Test post.
