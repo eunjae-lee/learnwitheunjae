@@ -15,6 +15,9 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           dest: 'apps/web/content/blog'
+          extension: '.svx'
+          inject_created_at: true
+          inject_created_at_key: createdAt
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'docs: update contents'
