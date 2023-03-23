@@ -29,6 +29,10 @@
     @apply border border-orange-300 text-sm py-1 px-2 rounded-md text-gray-700;
   }
 
+  article :global(p > a) {
+    @apply break-all;
+  }
+
   article :global(blockquote) {
     @apply my-6 border-l-8 pl-3 border-primary;
   }
