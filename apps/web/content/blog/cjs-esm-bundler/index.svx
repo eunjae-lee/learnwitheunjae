@@ -25,7 +25,7 @@ Uncaught ReferenceError: require is not defined
 
 그런데 프론트엔드 코딩에 require 가 등장해요. 
 
-```
+```html
 <script src="./module1.js"></script>
 <script src="./module2.js"></script>
 <script src="./module3.js"></script>
@@ -143,7 +143,7 @@ console.log(name)
 </script>
 ```
 
-이렇게 <script> 태그에 type="module" 을 넣어주면, 그 안에서 import 구문을 사용할 수 있게 됐어요.
+이렇게 `<script>` 태그에 type="module" 을 넣어주면, 그 안에서 import 구문을 사용할 수 있게 됐어요.
 
 하지만, 그렇다고 bundler 를 우리가 버릴 수 있는 건 아니에요. 브라우저가 할 수 없는 걸 bundler 가 할 수 있게 해주었고, 그렇게 bundling 이라는 과정이 생기면서 거기에 이런 저런 다양한 것들을 우린 넣기 시작했죠. 예를 들면 .sass 파일을 변환해서 .css 파일을 만들어 낸다던가? 그런 것들이 잔뜩 생겨 버렸으니, 이제 브라우저가 import 하나 지원한다고 bundler 를 버리기엔 이미 bundler 의존도가 너무 높아진 상황이에요. 어찌보면 브라우저라는 표준과는 달리, 사람들이 그때 그때 필요에 의해 bundler 를 만들고 발전시키는 과정에서 많은 혼란이 있었죠.
 
