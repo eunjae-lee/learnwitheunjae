@@ -6,7 +6,7 @@ createdAt: 2023-05-26T20:12:51.000Z
 ---
 
 
-## Part 1.
+## Part 1. 버튼 스타일링
 
 버튼이 하나 있어요. 이 버튼은 기본 스타일 외에 Loading, Success, Failure 이렇게 세 가지 경우에 따라 그에 맞는 배경색을 표시해야 해요. 어떻게 구현할 수 있을까요?
 
@@ -71,7 +71,7 @@ button.setAttribute("data-state", "success");
 }
 ```
 
-## Part 2.
+## Part 2. boolean 변수들
 
 비슷한 예제를 다른 관점에서 바라볼게요. 여러분은 React 컴포넌트를 작성하고 있습니다.
 
