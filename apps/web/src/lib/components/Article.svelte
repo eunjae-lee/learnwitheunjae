@@ -36,6 +36,14 @@
   article :global(blockquote) {
     @apply my-6 border-l-8 pl-3 border-primary;
   }
+  
+  article :global(ol > li) {
+    @apply list-number ml-5 my-0;
+  }
+
+  article :global(ol > li > ol) {
+    @apply my-0;
+  }
 
   article :global(ul > li) {
     @apply list-disc ml-5 my-0;
