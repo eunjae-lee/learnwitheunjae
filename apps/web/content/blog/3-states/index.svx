@@ -1,0 +1,123 @@
+---
+slug: "3-states"
+excerpt: "상태 변화에 따른 스타일링을 실수하지 않고 하는 법"
+title: "세 가지 상태를 갖는 버튼을 정확하게 스타일링하기"
+createdAt: 2023-05-26T20:12:51.000Z
+---
+
+
+## Part 1.
+
+버튼이 하나 있어요. 이 버튼은 기본 스타일 외에 Loading, Success, Failure 이렇게 세 가지 경우에 따라 그에 맞는 배경색을 표시해야 해요. 어떻게 구현할 수 있을까요?
+
+1. class name (`.btn-loading`, `.btn-success`, `.btn-failure`)
+2. data-* attribute
+
+저는 후자를 추천하는데요. 왜 그럴까요?
+
+```html
+<button type="button"
+  class="btn btn-loading"
+>Click</button>
+```
+
+위의 버튼을 보시면 loading 상태인 걸 알 수 있죠. 이제 success 상태로 만들어주려면 어떡해야 할까요? 어떤 프론트엔드 프레임워크를 사용하느냐에 따라 구현은 살짝 다르겠지만 Plain JavaScript 로 작성한다면 대강 다음과 같겠죠.
+
+```js
+button.classList.remove("btn-loading");
+button.classList.add("btn-success");
+```
+
+만약 실수로 btn-loading 을 못지우면 어떻게 될까요?
+
+```html
+<button type="button"
+  class="btn btn-loading btn-success"
+>Click</button>
+```
+
+어떤 스타일이 나올지 예측하기 어렵지만 어쨋든 위와 같은 버그가 생기는 게 그리 어렵진 않겠네요. 버그가 생기기 어렵게 하려면 어떤 방법을 취할 수 있을까요? 바로 data-* attribute 를 사용하는 겁니다.
+
+HTML 에서는 data- 로 시작하는 임의의 attribute 를 우리가 마음대로 지정할 수 있는데요.
+
+```html
+<button type="button"
+  class="btn"
+  data-state="loading"
+>Click</button>
+```
+
+위와 같이 `data-state` 라고 이름을 지어줄 수 있을 것 같네요. 이제 success 상태로 만들어 주려면 어떡해야 할까요?
+
+```js
+button.setAttribute("data-state", "success");
+```
+
+간단하네요. 아까는 기존에 있던 값을 정리하고 새로운 값을 넣어줘야 했다면, 이젠 그럴 필요가 없어졌어요. 실수로라도 loading 과 success 가 공존할 수 없게 됐어요. 원래 의미적으로 공존할 수 없음에도 아까의 코드에서는 실수를 저지르면 공존할 수 있게 되는 버그 상황이 있었는데 말이죠.
+
+그렇다면 CSS 는 어떻게 작성할까요?
+
+```css
+.btn[data-state='loading'] {
+  ...
+}
+
+.btn[data-state='success'] {
+  ...
+}
+
+.btn[data-state='failure'] {
+  ...
+}
+```
+
+## Part 2.
+
+비슷한 예제를 다른 관점에서 바라볼게요. 여러분은 React 컴포넌트를 작성하고 있습니다.
+
+```jsx
+function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isFailure, setIsFailure] = useState(false);
+
+  ...
+}
+```
+
+자, 우리에게 `isLoading`, `isSuccess`, `isFailure` 라는 세 가지 boolean 변수가 주어졌어요. 아무 생각 없이 코딩을 하다보면
+
+```js
+if (isLoading && !isSuccess && !isFailure) {
+
+} else if (!isLoading && isSuccess && !isFailure) {
+
+} else if (!isLoading && !isSuccess && isFailure) {
+  
+} ...
+```
+
+세 가지 boolean 변수의 모든 조합은 2 x 2 x 2 = 8 가지인데요. 사실 이 중에 다섯 가지는 애초에 존재할 수 없는 경우의 수죠? 혹시 다음과 같은 코드를 한번도 만난 적 없다면 다행인 일일거에요.
+
+```js
+else if (isLoading && isSuccess && !isFailure) {
+  // 여기로는 애초에 올 수가 없어!
+  throw new Error("cannot come here, but this doesn't make sense");
+}
+```
+
+로딩 중이면서 성공인 상황은 불가능한데, else if 브랜치를 적어줘야 할 거 같긴 한데, 그렇다고 말이 되는 코드가 아니죠. 이거 아까 `.btn-loading` 과 `.btn-success` 가 동시에 `<button>` 에 붙어있는 그런 상황이랑 똑같네요.
+
+이렇게 loading, success, failure 는 그 중에 반드시 하나만 true 일 수 있으며, state 라는 이름으로 묶일 수 있겠네요. 그러면 우리는 이 state 의 타입이 다음과 같다고 볼 수도 있겠어요.
+
+```ts
+type State = 'loading' | 'success' | 'failure';
+
+const [state, setState] = useState<State>('loading');
+```
+
+이러는 순간 우리는 `state` 에 대해 딱 세 가지만 검사하면 되는 상황이 되었네요. 무언가 동시에 발생할 염려도 없구요. 그런데 여기서 한발자국만 더 나아가보면요. loading 에서 success 로, 혹은 loading 에서 failure 로 이동할 순 있지만, success 에서 failure 로 이동할 순 없어요. 이 세 가지 state 중에 어디에서 어디로 이동할 수 있는지가 애초에 명확하게 결정되어 있거든요. 이 부분까지 강제하면 어떨까요? 지금과 같은 예제에서는 불필요하게 보일 수 있지만, state 가 다섯 가지만 된다고 해도 state 간의 이동이 꽤나 복잡해질 수 있겠죠.
+
+이럴 때 사용하는 게 State machine 이라는 개념이에요. loading 에서 success 로 이동하는 그 흐름, 그 액션을 `LOADED_SUCCESSFULLY` 라는 이름으로 정의할 수 있을테고요, 이 State machine 에서는 `setState(...)` 로 직접 다음 state 을 지정해주는 게 아니라 `send('LOADED_SUCCESSFULLY')` 와 같은 명령으로 액션을 실행시켜주고, 이 State machine 은 현재 state 가 loading 이 아니라면, "그 액션은 지금 state 에서 실행할 수 없는걸?!" 하며 오류를 내보내주게 됩니다. 훨씬 더 명시적이죠. JavaScript 진영에서 이 State machine 을 잘 구현해 놓은 [XState](https://xstate.js.org/docs/) 라는 라이브러리가 있어요. 관심이 있으시면 살펴보시는 것도 좋겠네요.
+
+State machine 까지 가지 않더라도, 공존할 수 없는 boolean 변수들을 여럿 갖게 되는 상황을 경계하는 습관을 가져보시면 위에 예를 들었던 문제 상황을 많이 피하실 수 있을 거에요. 생각보다 길어졌는데, 읽어주셔서 감사합니다 😊
