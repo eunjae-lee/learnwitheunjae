@@ -38,7 +38,7 @@
   }
   
   article :global(ol > li) {
-    @apply list-number ml-5 my-0;
+    @apply list-decimal ml-5 my-0;
   }
 
   article :global(ol > li > ol) {
