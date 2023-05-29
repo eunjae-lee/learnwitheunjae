@@ -121,3 +121,23 @@ const [state, setState] = useState<State>('loading');
 이럴 때 사용하는 게 State machine 이라는 개념이에요. loading 에서 success 로 이동하는 그 흐름, 그 액션을 `LOADED_SUCCESSFULLY` 라는 이름으로 정의할 수 있을테고요, 이 State machine 에서는 `setState(...)` 로 직접 다음 state 을 지정해주는 게 아니라 `send('LOADED_SUCCESSFULLY')` 와 같은 명령으로 액션을 실행시켜주고, 이 State machine 은 현재 state 가 loading 이 아니라면, "그 액션은 지금 state 에서 실행할 수 없는걸?!" 하며 오류를 내보내주게 됩니다. 훨씬 더 명시적이죠. JavaScript 진영에서 이 State machine 을 잘 구현해 놓은 [XState](https://xstate.js.org/docs/) 라는 라이브러리가 있어요. 관심이 있으시면 살펴보시는 것도 좋겠네요.
 
 State machine 까지 가지 않더라도, 공존할 수 없는 boolean 변수들을 여럿 갖게 되는 상황을 경계하는 습관을 가져보시면 위에 예를 들었던 문제 상황을 많이 피하실 수 있을 거에요. 글이 생각보다 길어졌는데, 읽어주셔서 감사합니다 😊
+
+---
+
+추가합니다. [ak님의 댓글](https://twitter.com/_a6g_/status/1663123942255783938) 덕분에 제가 몰랐던 [`dataset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) 이라는 API 를 알게 되었는데요.
+
+```js
+button.setAttribute("data-state", "success");
+console.log(button.getAttribute("data-state"));
+```
+
+대신에 다음과 같이 사용할 수 있습니다.
+
+```js
+button.dataset.state = "success";
+console.log(button.dataset.state);
+```
+
+위와 같이 해도 여전히 DOM element 에는 `data-state` 라는 attribute 가 붙게 돼요.
+
+조금 살펴보니까, 이 접근이 `setAttribute()` & `getAttribute()` 에 비해 더 나은 결정적인 지점은 type-safety 라고 생각해요. `setAttribute()` 를 써서 string, number, boolean, ... 무슨 값을 넣든 무조건 string 으로 저장되고, `getAttribute()` 을 하면 string 으로 리턴이 되는데요. `dataset` 을 쓰는 경우 number 를 넣으면 그대로 저장되고 접근했을 때 number 로 값을 얻어 올 수 있는 점이 가장 큰 장점인 거 같습니다.
