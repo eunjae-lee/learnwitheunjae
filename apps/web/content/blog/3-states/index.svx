@@ -140,7 +140,7 @@ console.log(button.dataset.state);
 
 위와 같이 해도 여전히 DOM element 에는 `data-state` 라는 attribute 가 붙게 돼요.
 
-~조금 살펴보니까, 이 접근이 `setAttribute()` & `getAttribute()` 에 비해 더 나은 결정적인 지점은 type-safety 라고 생각해요. `setAttribute()` 를 써서 string, number, boolean, ... 무슨 값을 넣든 무조건 string 으로 저장되고, `getAttribute()` 을 하면 string 으로 리턴이 되는데요. `dataset` 을 쓰는 경우 number 를 넣으면 그대로 저장되고 접근했을 때 number 로 값을 얻어 올 수 있는 점이 가장 큰 장점인 거 같습니다.~
+~~조금 살펴보니까, 이 접근이 `setAttribute()` & `getAttribute()` 에 비해 더 나은 결정적인 지점은 type-safety 라고 생각해요. `setAttribute()` 를 써서 string, number, boolean, ... 무슨 값을 넣든 무조건 string 으로 저장되고, `getAttribute()` 을 하면 string 으로 리턴이 되는데요. `dataset` 을 쓰는 경우 number 를 넣으면 그대로 저장되고 접근했을 때 number 로 값을 얻어 올 수 있는 점이 가장 큰 장점인 거 같습니다.~~
 
 ---
 
