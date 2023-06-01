@@ -24,7 +24,7 @@
   });
 </script>
 
-<Meta title="Learn with Eunaje" />
+<Meta title="Learn with Eunjae" />
 
 <Hero />
 <NavBar />
