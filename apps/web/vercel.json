@@ -6,8 +6,8 @@
       "permanent": false
     },
     {
-      "source": "/upgrade-js",
-      "destination": "/sinabro-js",
+      "source": "/sinabro-js",
+      "destination": "https://sinabrojs.dev",
       "permanent": false
     }
   ]
