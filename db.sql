@@ -3,18 +3,16 @@ CREATE TABLE counts (
   count INTEGER NOT NULL DEFAULT 0
 );
 
-CREATE OR REPLACE FUNCTION increment_count(key TEXT)
+CREATE OR REPLACE FUNCTION increment_count(param_key TEXT)
   RETURNS VOID
-  LANGUAGE plpgsql
 AS $$
 BEGIN
-  PERFORM pg_advisory_xact_lock(hashtext(key));
-  UPDATE counts SET count = count + 1 WHERE key = key;
+  UPDATE counts SET count = count + 1 WHERE key = param_key;
   IF NOT FOUND THEN
-    INSERT INTO counts (key, count) VALUES (key, 1);
+    INSERT INTO counts (key, count) VALUES (param_key, 1);
   END IF;
 END;
-$$;
+$$ language plpgsql;
 
 CREATE POLICY "Enable read access for all users" ON "public"."counts"
 AS PERMISSIVE FOR SELECT
