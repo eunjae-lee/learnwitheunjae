@@ -6,22 +6,7 @@
   import Bio from '$lib/components/Bio.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import Meta from '$lib/components/Meta.svelte';
-  import { type Story, IS_PREVIEW_MODE, enablePreviews, enablePreview } from '@lwe/content';
-  import StoryblokComponent from '$lib/components/storyblok';
-  import { onMount } from 'svelte';
   import { PODIA_HOST } from '../config';
-
-  export let data: {
-    story: Story;
-  };
-
-  onMount(() => {
-    if (IS_PREVIEW_MODE) {
-      enablePreview(data.story, (newStory) => {
-        data.story = newStory;
-      });
-    }
-  });
 </script>
 
 <Meta title="Learn with Eunjae" />
@@ -49,9 +34,67 @@
     </div>
   </section> -->
 
-  {#key data.story.id}
-    <StoryblokComponent story={data.story} />
-  {/key}
+  <div class="flex flex-col gap-24">
+    <section>
+      <h2 class="text-secondary text-xl font-medium">시나브로 자바스크립트</h2>
+      <p class="font-medium opacity-75">
+        다양한 주제를 바닥부터 개발해 보며 튼튼한 기반과 자신감을 쌓아보세요.
+      </p>
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-16">
+        <div class="basis-1/2">
+          <img
+            class="w-full rounded-md"
+            src="https://a.storyblok.com/f/184407/500x605/4121c30060/js_meme.jpg"
+            alt="시나브로 자바스크립트"
+          />
+          <p class="mt-1 opacity-50 text-xs text-right">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://imgflip.com/memegenerator/187078587/Skipping-Stairs"
+              >이미지 출처: imgflip</a
+            >
+          </p>
+        </div>
+        <div class="basis-1/2">
+          <div class="flex flex-col gap-4 font-light leading-relaxed">
+            <p>
+              React 나 Vue.js 등의 프론트엔드 프레임워크를 가지고 개발을 하지만, JavaScript 자체는
+              너무 모르고 있다는 느낌이 드시나요? 개발을 하다 보면, 막히는 부분이 많은데, 내가 뭘
+              몰라서 막히는지조차 모르는 경우가 있죠.
+            </p>
+            <p>
+              이 강의는 다양한 미니 프로젝트를 통해 JavaScript 를 다양하게 사용해 보고, 프레임워크
+              없이 구현하려면 어떻게 하는지 보다 깊이 이해하게 도와줍니다. 다양한 예제를 차근차근
+              하나씩 따라가다 보면, 어느새 JavaScript 를 폭넓게 사용해 본 경험을 얻게 되고, 그게
+              자신감에 큰 도움을 줄 거예요.
+            </p>
+          </div>
+          <div class="mt-8 sm:mt-6 flex flex-col gap-8">
+            <div class="flex justify-end">
+              <a
+                class="w-full btn btn-primary hover:no-underline gap-1"
+                href="https://sinabrojs.dev"
+                ><span>자세한 강좌 소개</span><svg
+                  width="16"
+                  height="16"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="lucide-icon lucide lucide-arrow-right "
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><line x1="5" y1="12" x2="19" y2="12" /> <polyline points="12 5 19 12 12 19" />
+                </svg></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
   <!-- <UpgradeJSIntroduction /> -->
 
   <!-- <PDIntroduction /> -->

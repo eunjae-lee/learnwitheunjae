@@ -294,12 +294,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lwe/content@workspace:packages/content":
-  version: 0.0.0-use.local
-  resolution: "@lwe/content@workspace:packages/content"
-  languageName: unknown
-  linkType: soft
-
 "@lwe/course@*, @lwe/course@workspace:packages/course":
   version: 0.0.0-use.local
   resolution: "@lwe/course@workspace:packages/course"
