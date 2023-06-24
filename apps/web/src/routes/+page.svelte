@@ -42,11 +42,7 @@
       </p>
       <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-16">
         <div class="basis-1/2">
-          <img
-            class="w-full rounded-md"
-            src="https://a.storyblok.com/f/184407/500x605/4121c30060/js_meme.jpg"
-            alt="시나브로 자바스크립트"
-          />
+          <img class="w-full rounded-md" src="/js_meme.jpg" alt="시나브로 자바스크립트" />
           <p class="mt-1 opacity-50 text-xs text-right">
             <a
               rel="noreferrer"
