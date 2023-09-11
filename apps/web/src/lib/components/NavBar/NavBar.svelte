@@ -40,7 +40,7 @@
           {
             label: '시나브로 자바스크립트',
             shortLabel: '시나브로 JS',
-            href: 'https://sinabrojs.dev',
+            href: 'https://sinabrojs.dev/ko',
             icon: Palette,
           },
           // { label: "퐁당개발", href: "/pd", icon: Dices },

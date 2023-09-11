@@ -70,7 +70,7 @@
             <div class="flex justify-end">
               <a
                 class="w-full btn btn-primary hover:no-underline gap-1"
-                href="https://sinabrojs.dev"
+                href="https://sinabrojs.dev/ko"
                 ><span>자세한 강좌 소개</span><svg
                   width="16"
                   height="16"
