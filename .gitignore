@@ -7,7 +7,6 @@ build
 .env
 .env.*
 !.env.example
-packages/db/supabase/.temp
 
 # yarn
 yarn-debug.log

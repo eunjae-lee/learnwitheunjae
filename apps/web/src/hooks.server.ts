@@ -1,5 +1,3 @@
-// in order to get the auth helper started on the server-side
-import "@lwe/db";
 import type { Handle } from "@sveltejs/kit";
 
 export const handle: Handle = async ({ event, resolve }) => {
